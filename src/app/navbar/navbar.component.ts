@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {faUserPlus ,} from '@fortawesome/free-solid-svg-icons'
+import {faUserPlus ,faList , faHome} from '@fortawesome/free-solid-svg-icons'
 
 @Component({
   selector: 'app-navbar',
@@ -8,6 +8,8 @@ import {faUserPlus ,} from '@fortawesome/free-solid-svg-icons'
 })
 export class NavbarComponent implements OnInit {
   faUserPlus = faUserPlus
+  faList =faList
+  faHome=faHome
   constructor() { }
 
   ngOnInit(): void {

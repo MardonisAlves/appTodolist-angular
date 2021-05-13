@@ -12,6 +12,7 @@ export class LoginComponent implements OnInit {
   error:string
   faUserLock = faUserLock
   faKey = faKey
+  localstorage = window.localStorage
   constructor(private authService: AuthServiceService ,
               private router: Router) 
               { this.error = ''}
@@ -21,10 +22,9 @@ export class LoginComponent implements OnInit {
   }
 
   login(f:NgForm){
-
-    console.log(f.value.email)
-    console.log(f.value.password)
-
+    /*verificar se exite token com starage 
+      se não houver retornar menssagem de error
+    */
     if (f.value.email && f.value.password) {
       this.authService.login(f.value.email, f.value.password)
           .subscribe(
@@ -41,6 +41,7 @@ export class LoginComponent implements OnInit {
               }
           );
   }
+
   }
 
 }

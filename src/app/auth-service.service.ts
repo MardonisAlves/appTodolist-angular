@@ -26,7 +26,7 @@ export class AuthServiceService {
     return this.http.post<any>('http://localhost:3000/login', { email, password })
     .do(authResult => this.setSession(authResult),(error) =>{
       if(error.status == 401){
-      console.log(error)
+      //console.log(error)
       }
     })
     .pipe(shareReplay())

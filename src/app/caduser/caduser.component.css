@@ -1,0 +1,40 @@
+.caduser{
+    margin: 50px auto;
+   
+  
+}
+.caduser h3 {
+    text-align: center;
+    color: gray;
+}
+
+.caduser {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+}
+.form-group {
+    font-size: 12px;
+}
+.form-group input{
+    border-radius: 5px;
+    margin: 10px 0px 10px 0px;
+    padding: 10px;
+    width: 300px;
+    border: 1px solid gray;
+}
+
+
+button {
+    margin-right: 10px;
+    padding: 10px;
+    background: rgb(4, 141, 146);  
+    color: #fff;
+    border: none;
+}
+#icon{
+    font-size: 15px;
+    margin-right: 10px;
+}
+

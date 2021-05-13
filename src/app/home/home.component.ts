@@ -26,7 +26,7 @@ export class HomeComponent implements OnInit {
       console.log(dados)
     },(error) => {
       if(error){
-        this.router.navigateByUrl("")
+       // this.router.navigateByUrl("")
       }
     })
   }
@@ -40,5 +40,7 @@ export class HomeComponent implements OnInit {
     this.storage.removeItem("id_token");
     this.storage.removeItem("expires_at");
     this.storage.removeItem("id")
+
+    this.router.navigateByUrl("")
   }
 }

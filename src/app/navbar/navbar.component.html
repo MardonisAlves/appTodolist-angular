@@ -1,8 +1,9 @@
 <header>
     <div class="container">
-      <h2 class="logo">APP TODO LISTE</h2>
+      <h2 class="logo"> <fa-icon [icon]="faList" id="icon"></fa-icon>APP TODO LISTE</h2>
       <nav>
-        <a href="#"><fa-icon [icon] = "faUserPlus"></fa-icon>Cadastra-se</a>
+        <a [routerLink]="['']"><fa-icon [icon] = "faHome"></fa-icon>Home</a>
+        <a [routerLink]="['/caduser']"><fa-icon [icon] = "faUserPlus"></fa-icon>Cadastra-se</a>
       </nav>
     </div>
 </header>

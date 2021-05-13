@@ -1,0 +1,46 @@
+<app-navbar></app-navbar>
+
+<section class="caduser">
+     
+    <form #f="ngForm" (ngSubmit)="caduser(f)">
+        <h3>Novo Usuário</h3>
+        <div *ngIf="error">
+          <p><strong>{{error}}</strong></p>
+        </div>
+        <div class="form-group">
+          <label for="exampleInputEmail1">Nome</label><br>
+          <input type="text" class="form-control"  name="nome" ngModel >
+          
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Sobrenome</label><br>
+            <input type="text" class="form-control"  name="sobrenome" ngModel >
+            
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Email</label><br>
+            <input type="email" class="form-control"  name="email" ngModel >
+            
+          </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Password</label><br>
+          <input type="password" class="form-control" id="exampleInputPassword1" name="password" ngModel >
+        </div>
+
+        <div class="form-group">
+            <label for="exampleInputPassword1">Repet passwod</label><br>
+            <input type="password" class="form-control" id="exampleInputPassword1" name="repet" ngModel >
+          </div>
+
+        <div class="button">
+          <button type="submit">
+          <fa-icon [icon]="faUserCircle" id="icon"></fa-icon>Cadastra-se
+        </button>
+
+         <button type="reset">
+              <fa-icon [icon]="faMinusSquare" id="icon"></fa-icon>Cancelar
+        </button>
+    
+        </div>
+      </form>
+  </section>

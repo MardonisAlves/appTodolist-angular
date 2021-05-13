@@ -8,7 +8,8 @@ import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { AuthInterceptor } from './AuthInterceptor';
 import { NavbarComponent } from './navbar/navbar.component';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { CaduserComponent } from './caduser/caduser.component'
 
 
 
@@ -18,6 +19,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'
     LoginComponent,
     HomeComponent,
     NavbarComponent,
+    CaduserComponent,
    
   ],
   imports: [
