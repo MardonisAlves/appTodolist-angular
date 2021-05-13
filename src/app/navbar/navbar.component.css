@@ -1,0 +1,18 @@
+h2 {
+    font-size: 30px;
+}
+header  nav a{
+    margin: 10px;
+    color: #fff;
+}
+header .container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between; 
+    color: #fff;
+    background: rgb(4, 141, 146);
+}
+.logo {
+    margin-left: 10px;
+}
+

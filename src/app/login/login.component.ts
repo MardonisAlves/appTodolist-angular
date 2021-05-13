@@ -1,0 +1,46 @@
+import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AuthServiceService } from '../auth-service.service';
+import { faUserLock , faKey } from '@fortawesome/free-solid-svg-icons'
+@Component({
+  selector: 'app-login',
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.css']
+})
+export class LoginComponent implements OnInit {
+  error:string
+  faUserLock = faUserLock
+  faKey = faKey
+  constructor(private authService: AuthServiceService ,
+              private router: Router) 
+              { this.error = ''}
+
+
+  ngOnInit(): void {
+  }
+
+  login(f:NgForm){
+
+    console.log(f.value.email)
+    console.log(f.value.password)
+
+    if (f.value.email && f.value.password) {
+      this.authService.login(f.value.email, f.value.password)
+          .subscribe(
+              (res) => {
+                  console.log(res)
+                  console.log("User is logged in");
+                 this.router.navigateByUrl('home');
+              },
+              (error) => {
+                if(error.status == 401){
+                  const error = this.error= "E-mail ou senha invalida"
+                   console.log(error)
+                   }
+              }
+          );
+  }
+  }
+
+}
