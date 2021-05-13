@@ -28,4 +28,4 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ## Login com JWT e NodeJs
 
-Para clonar o back-end api rest acesse aqui [Protractor](https://github.com/MardonisAlves/api-rest-sequelize-orm-nodejs)
+Para clonar o back-end api rest acesse aqui [Back-end Nodejs](https://github.com/MardonisAlves/api-rest-sequelize-orm-nodejs)
