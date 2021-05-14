@@ -10,6 +10,7 @@ import { AuthInterceptor } from './AuthInterceptor';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { CaduserComponent } from './caduser/caduser.component'
+import { Userservice } from './services/User.service';
 
 
 
@@ -31,6 +32,7 @@ import { CaduserComponent } from './caduser/caduser.component'
   ],
   providers: [
     HttpClient,
+    Userservice,
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]

@@ -26,12 +26,7 @@ export class AuthInterceptor implements HttpInterceptor {
             return next.handle(cloned);
         }
         else {
-            return next.handle(req).pipe(tap(event => {
-                
-            },error => {
-                console.log(error)
-                this.router.navigateByUrl("")
-            }));
-        }
+            return next.handle(req)
     }
+}
 }

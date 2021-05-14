@@ -2,8 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import 'rxjs/add/operator/do';
-import { User } from '../models/User'
-
+import { Tarefas } from '../models/Tarefas';
+import baseUrl from './../baseURl/baseUrl'
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -11,22 +11,25 @@ import { User } from '../models/User'
 })
 export class HomeComponent implements OnInit {
   private storage:Storage
-  
+  private id: any
   constructor(private http: HttpClient,private router:Router) { 
     this.storage = window.localStorage
+    this.id = localStorage.getItem('id')
   }
 
   ngOnInit() {
-    this.getUserId()
+    this.getTarefasId()
   }
 
-  getUserId(){
-    return this.http.get<User>('http://localhost:3000/list/1')
+  /*este metodo sera gettodoListId*/
+  /* criar directory base url */
+  getTarefasId(){
+    return this.http.get<Tarefas>(`${baseUrl}tarefas/${this.id}`)
     .subscribe(dados => {
       console.log(dados)
     },(error) => {
       if(error){
-       // this.router.navigateByUrl("")
+        this.router.navigateByUrl("")
       }
     })
   }

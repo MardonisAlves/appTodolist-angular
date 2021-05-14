@@ -2,7 +2,7 @@
 
 <section class="caduser">
      
-    <form #f="ngForm" (ngSubmit)="caduser(f)">
+    <form #f="ngForm" (ngSubmit)="OnSubmit(f)">
         <h3>Novo Usuário</h3>
         <div *ngIf="error">
           <p><strong>{{error}}</strong></p>

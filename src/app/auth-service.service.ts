@@ -2,9 +2,9 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 import * as moment from 'moment'
 import 'rxjs/add/operator/do';
-import { Observable } from 'rxjs';
 import { shareReplay } from 'rxjs/operators';
-import { User } from './models/User'
+import  baseUrl from './baseURl/baseUrl'
+
 
 
 
@@ -23,7 +23,7 @@ export class AuthServiceService {
 
   login(email: string, password: string) {
 
-    return this.http.post<any>('http://localhost:3000/login', { email, password })
+    return this.http.post<any>(`${baseUrl}login`, { email, password })
     .do(authResult => this.setSession(authResult),(error) =>{
       if(error.status == 401){
       //console.log(error)
@@ -39,6 +39,8 @@ export class AuthServiceService {
     const id_token = this.storage.setItem('id_token', authResult.idToken);
     this.storage.setItem("expires_at", JSON.stringify(expiresAt.valueOf()));
     const id =  this.storage.setItem('id' , authResult.id);
+    const nome = this.storage.setItem('nome',authResult.nome);
+    const sobrenome = this.storage.setItem('sobrenome',authResult.sobrenome)
     
   }
 
