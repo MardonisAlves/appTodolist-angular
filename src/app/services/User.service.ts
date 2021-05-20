@@ -5,7 +5,7 @@ import baseUrl from './../baseURl/baseUrl'
 
 @Injectable()
 export class Userservice {
-     id  = localStorage.getItem('id')
+    private id = localStorage.getItem('id')
     constructor(private http:HttpClient){
         
     }

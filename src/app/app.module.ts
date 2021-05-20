@@ -11,6 +11,13 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { CaduserComponent } from './caduser/caduser.component'
 import { Userservice } from './services/User.service';
+import { MenuhomeComponent } from './menuhome/menuhome.component';
+import { ListatarefaComponent } from './listatarefa/listatarefa.component';
+import { FooterComponent } from './footer/footer.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
+import { FlexLayoutModule } from "@angular/flex-layout";
+import { CardsComponent } from './cards/cards.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 
@@ -21,6 +28,11 @@ import { Userservice } from './services/User.service';
     HomeComponent,
     NavbarComponent,
     CaduserComponent,
+    MenuhomeComponent,
+    ListatarefaComponent,
+    FooterComponent,
+    SidebarComponent,
+    CardsComponent,
    
   ],
   imports: [
@@ -28,7 +40,9 @@ import { Userservice } from './services/User.service';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    FlexLayoutModule,
+    NgbModule
   ],
   providers: [
     HttpClient,

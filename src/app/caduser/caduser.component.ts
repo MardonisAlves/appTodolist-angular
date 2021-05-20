@@ -1,7 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { faUserLock , faKey , faUserCircle , faMinusSquare} from '@fortawesome/free-solid-svg-icons'
+import { faUserLock, faKey, faUserCircle, faMinusSquare } from '@fortawesome/free-solid-svg-icons'
+
 
 import { Userservice } from '../services/User.service';
 
@@ -13,31 +14,46 @@ import { Userservice } from '../services/User.service';
 export class CaduserComponent implements OnInit {
   faUserLock = faUserLock
   faKey = faKey
-  faUserCircle=faUserCircle
-  faMinusSquare= faMinusSquare
-  error:string
-  userService:Userservice
-  
-  constructor(private http:HttpClient,userService:Userservice) {
+  faUserCircle = faUserCircle
+  faMinusSquare = faMinusSquare
+  error: string
+  camposvazio:string
+  userService: Userservice
+
+  constructor(private http: HttpClient, userService: Userservice) {
     this.userService = userService
     this.error = ''
-    
+    this.camposvazio = ''
+
   }
 
   ngOnInit(): void {
   }
 
-  OnSubmit(f:NgForm){
+  OnSubmit(f: NgForm) {
 
-    const nome =  f.value.nome
+    const nome = f.value.nome
     const sobrenome = f.value.sobrenome
-    const  email = f.value.email
+    const email = f.value.email
     const password = f.value.password
-   let user = { nome,sobrenome,email ,password}
+    const reset = f.value.reset
 
-   console.log(user)
-    this.userService.Caduser(user)
+    let user ={ nome, sobrenome, email, password }
 
+    if (nome == '' || sobrenome == '' || email == '' || password == '' || reset == '') {
+      this.camposvazio = 'Campo obrigatório *'
+    }
+   
+    if (password == reset && password != '' && reset != '' ) {
+      this.userService.Caduser(user)
+      this.camposvazio = ''
+      this.error = ''
+    } else{
+      this.error = "A senha deve ser igual"
+     
   }
 
 }
+}
+
+

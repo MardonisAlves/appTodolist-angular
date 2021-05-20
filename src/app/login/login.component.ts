@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthServiceService } from '../auth-service.service';
-import { faUserLock , faKey } from '@fortawesome/free-solid-svg-icons'
+import { faUserLock , faKey ,faUserPlus } from '@fortawesome/free-solid-svg-icons'
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -12,6 +12,7 @@ export class LoginComponent implements OnInit {
   error:string
   faUserLock = faUserLock
   faKey = faKey
+  faUserPlus=faUserPlus
   localstorage = window.localStorage
   constructor(private authService: AuthServiceService ,
               private router: Router) 

@@ -2,33 +2,37 @@ button , a {
     margin-top: 10px;
 }
 a {
+    color: rgb(53, 50, 50);
     margin: 10px;
 }
 
+
 button {
-    background-color: rgb(4, 141, 146);
+    background-color: rgb(14, 32, 138);
     color: #fff;
-    font-size: 15px;
+    font-size: 12px;
     padding: 10px;
     border: none;
 }
 .login h3 {
     text-align: center;
-    margin-bottom: 20px;
+    margin: 20px 0px 30px 0px;
 }
 
-.login{
-    margin:100px auto;
-}
+
 .login{
     display: flex;
     align-items: center;
     justify-content: center;
-   
-    width: 80%;
-    height: 400px;
-    color: rgb(107, 117, 117);
-    border: 0px solid black;
+    
+    margin: 100px auto;
+    border: 1px solid gray;
+    border-radius: 5px;
+    width: 25%;
+    height: 350px;
+    color: rgb(53, 50, 50);
+    font-size: 12px;
+  
 }
 .login p {
     text-align: center;
@@ -40,10 +44,16 @@ button {
 .form-group input{
     border: 1px solid gray;
     margin: 10px 0px 10px 0px;
+    border-radius: 5px;
     padding: 10px;
-    width: 250px;
+    width: 300px;
 }
 
+@media screen and (min-width:250px){
+    .login {
+        width: 350px;
+    }
+}
 
 
 

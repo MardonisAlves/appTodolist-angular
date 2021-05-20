@@ -4,17 +4,22 @@ import { Router } from '@angular/router';
 import 'rxjs/add/operator/do';
 import { Tarefas } from '../models/Tarefas';
 import baseUrl from './../baseURl/baseUrl'
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
+
 export class HomeComponent implements OnInit {
   private storage:Storage
   private id: any
+  nome:string = ''
   constructor(private http: HttpClient,private router:Router) { 
     this.storage = window.localStorage
     this.id = localStorage.getItem('id')
+    this.nome =  localStorage.getItem('nome') || ''
+   
   }
 
   ngOnInit() {
@@ -34,16 +39,4 @@ export class HomeComponent implements OnInit {
     })
   }
 
-  idTokem(){
-    const id = this.storage.getItem('id');
-    console.log(id)
-  }
-
-  logout() {
-    this.storage.removeItem("id_token");
-    this.storage.removeItem("expires_at");
-    this.storage.removeItem("id")
-
-    this.router.navigateByUrl("")
-  }
 }
