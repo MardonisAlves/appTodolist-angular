@@ -1,35 +1,35 @@
 <div class="page-home">
 
     <div class="logo">
-      Seja bem vindo  <h4>{{ nome }}</h4>
+        <h4>{{ nome }}</h4>
     </div>
-  
+
     <div class="menu-home">
-     <div class="menu-left">
-       <nav>
-           <a href="#">Home</a>
-           <a href="#">Tarefas</a>
-       </nav>
-      </div>
-      
-      <!--menu-rigth-->
-      <app-menuhome></app-menuhome>
+        <div class="menu-left">
+            <nav>
+                <a href="#">
+                    <fa-icon [icon]="faHome" id="icon"></fa-icon>Home
+                </a>
+            </nav>
+        </div>
+
+        <!--menu-rigth-->
+        <app-menuhome></app-menuhome>
     </div>
-  
-  </div>
 
-  <div class="flex-container">
-      <div class="sidebar">
-          sidebar
-      </div>
-      <div class="container">
-          {{nome}}
-      </div>
-  </div>
+</div>
 
-  <div class="footer">
-      footer
-  </div>
+<div class="flex-container">
+    <div class="sidebar">
+        <!--sidebar-->
+        <app-sidebar></app-sidebar>
+    </div>
+    <div class="container">
+       <!--app-cards-->
+       <app-cards></app-cards>
+    </div>
+</div>
 
-  
-
+<div class="footer">
+    footer
+</div>

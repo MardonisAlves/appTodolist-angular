@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import {faUserPlus ,faList , faHome} from '@fortawesome/free-solid-svg-icons'
+import {faUserPlus ,faList , faHome, faSignOutAlt} from '@fortawesome/free-solid-svg-icons'
 
 @Component({
   selector: 'app-menuhome',
@@ -11,6 +11,8 @@ export class MenuhomeComponent implements OnInit {
   faUserPlus = faUserPlus
   faList =faList
   faHome=faHome
+  faSignOutAlt=faSignOutAlt
+
    nome:string = ''
    collapsed = true;
   constructor(private router:Router) { 

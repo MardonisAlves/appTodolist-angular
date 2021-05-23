@@ -1,0 +1,24 @@
+nav{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+nav ul li {
+    padding: 15px 91px 15px 91px;
+    list-style: none;
+   
+}
+
+nav ul li:hover{
+    padding: 15px 91px 15px 91px;
+    background: rgba(3, 34, 54,.5);
+   
+}
+
+
+
+
+
+

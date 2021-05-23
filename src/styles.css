@@ -12,8 +12,9 @@
 }
 
 body{
-    font-family:Verdana, Geneva, Tahoma, sans-serif;
-  
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight:100;
+
 }
 
 /*home*/
@@ -23,14 +24,14 @@ body{
     align-items: flex-start;
    
 }
-.logo {
-    background:rgba(0, 0, 0, .7);
-    width: 25%;
+.page-home .logo {
+    background:#343a40;
+    border-bottom: 1px solid #F5F5F5;
+    width: 20%;
     height: 80px;
     color: #fff;
-    border: 1px rgb(223, 225, 226);
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
     
 }
@@ -40,10 +41,7 @@ body{
     align-items: center;
     background:#fff;
     height: 80px;
-    width: 75%;
-   border: 1px rgb(223, 217, 217);
-  
-
+    width: 80%;
 }
 
 /*menu-left*/
@@ -58,18 +56,17 @@ body{
 .flex-container{
     display: flex;
     justify-content: space-between;
+    
 }
 .sidebar{
-    height: 80vh;
-   width: 25%;
-   background:rgba(0, 0, 0, .7);
-   box-shadow: 5px 3px 5px rgb(223, 225, 226);
-   color: #fff;
+    width: 20%;
+    background:#343a40;
+    color: #fff;
 }
 .container{
-    height: 80vh;
-    width: 75%;
-    background: rgb(223, 225, 226);
+    width: 80%;
+    height: 100vh;
+    background: #F5F5F5;
 }
 
 /*footer*/
@@ -84,7 +81,14 @@ body{
 }
 
 
+/*qunado for max-width:640px o height deve ser automatico*/
 
+@media(max-width:640px){
+    .container{
+        height:auto;
+        
+    }
+}
 
 
 

@@ -2,8 +2,10 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import 'rxjs/add/operator/do';
+import {faListAlt , faHome , faBalanceScale} from '@fortawesome/free-solid-svg-icons'
 import { Tarefas } from '../models/Tarefas';
 import baseUrl from './../baseURl/baseUrl'
+
 
 @Component({
   selector: 'app-home',
@@ -14,6 +16,9 @@ import baseUrl from './../baseURl/baseUrl'
 export class HomeComponent implements OnInit {
   private storage:Storage
   private id: any
+  faHome=faHome
+  faListAlt=faListAlt
+  faBalanceScale=faBalanceScale
   nome:string = ''
   constructor(private http: HttpClient,private router:Router) { 
     this.storage = window.localStorage

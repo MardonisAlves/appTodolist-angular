@@ -1,0 +1,19 @@
+.menu-home .menu-left nav a{
+    color: grey;
+}
+
+#icon{
+    margin-right: 2px;
+}
+
+.menu-home .menu-left nav a:hover{
+    color: rgb(3, 34, 54);
+   
+}
+.logo h4 {
+    margin-left: 10px;
+}
+.logo img {
+    width: 25%;
+    height: 80%;
+}
