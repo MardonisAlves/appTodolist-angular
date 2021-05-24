@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {faListAlt ,faEye} from '@fortawesome/free-solid-svg-icons'
+import {faListAlt ,faEye , faMoneyBill , faListUl , faCheck} from '@fortawesome/free-solid-svg-icons'
 
 @Component({
   selector: 'app-cards',
@@ -9,6 +9,9 @@ import {faListAlt ,faEye} from '@fortawesome/free-solid-svg-icons'
 export class CardsComponent implements OnInit {
   faListAlt=faListAlt
   faEye=faEye
+  faMoneyBill=faMoneyBill
+  faListUl=faListUl
+  faCheck=faCheck
   constructor() { }
 
   ngOnInit(): void {
