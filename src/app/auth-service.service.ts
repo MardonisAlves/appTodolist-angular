@@ -25,8 +25,9 @@ export class AuthServiceService {
 
     return this.http.post<any>(`${baseUrl}login`, { email, password })
     .do(authResult => this.setSession(authResult),(error) =>{
+      
       if(error.status == 401){
-      //console.log(error)
+      console.log(error)
       }
     })
     .pipe(shareReplay())
@@ -34,10 +35,15 @@ export class AuthServiceService {
   }
 
   private setSession(authResult: any) {
+    console.log(authResult.expiresIn)
 
-    const expiresAt = moment().add(authResult.expiresIn, 'second');
+    const expiresAt = moment().add(authResult.expiresIn, 'seconds');
     const id_token = this.storage.setItem('id_token', authResult.idToken);
-    this.storage.setItem("expires_at", JSON.stringify(expiresAt.valueOf()));
+   const of =  this.storage.setItem("expires_at", JSON.stringify(expiresAt.valueOf()));
+
+    
+
+
     const id =  this.storage.setItem('id' , authResult.id);
     const nome = this.storage.setItem('nome',authResult.nome);
     const sobrenome = this.storage.setItem('sobrenome',authResult.sobrenome)
@@ -61,7 +67,9 @@ export class AuthServiceService {
   getExpiration() {
 
     const expiration = localStorage.getItem("expires_at");
+   
     const expiresAt = JSON.parse(expiration || '');
+    console.log(expiresAt)
     return moment(expiresAt);
   }
 }

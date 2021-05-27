@@ -26,7 +26,8 @@ export class MenuhomeComponent implements OnInit {
     localStorage.removeItem("id_token");
     localStorage.removeItem("expires_at");
     localStorage.removeItem("id")
-
+    localStorage.removeItem('nome')
+  
     this.router.navigateByUrl("")
   }
 }

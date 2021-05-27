@@ -30,11 +30,10 @@ export class LoginComponent implements OnInit {
       this.authService.login(f.value.email, f.value.password)
           .subscribe(
               (res) => {
-                  console.log(res)
-                  console.log("User is logged in");
                  this.router.navigateByUrl('home');
               },
               (error) => {
+                /* pegar o error dinamico senha e email*/
                 if(error.status == 401){
                   const error = this.error= "E-mail ou senha invalida"
                    console.log(error)

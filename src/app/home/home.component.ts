@@ -39,9 +39,9 @@ export class HomeComponent implements OnInit {
       console.log(dados)
     },(error) => {
       if(error){
-        this.router.navigateByUrl("")
+        //this.router.navigateByUrl("")
       }
-    })
+    } )
   }
 
 }

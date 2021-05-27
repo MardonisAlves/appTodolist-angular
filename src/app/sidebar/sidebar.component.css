@@ -4,7 +4,9 @@ nav{
     align-items: center;
 }
 
-
+a {
+    color: white;
+}
 nav ul li {
     padding: 15px 91px 15px 91px;
     list-style: none;

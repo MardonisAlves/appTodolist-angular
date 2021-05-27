@@ -18,6 +18,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { CardsComponent } from './cards/cards.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AuthGuardService } from './guards/auth-guard.service';
 
 
 
@@ -45,6 +46,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     NgbModule
   ],
   providers: [
+    AuthGuardService,
     HttpClient,
     Userservice,
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
