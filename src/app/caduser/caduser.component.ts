@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { faUserLock, faKey, faUserCircle, faMinusSquare } from '@fortawesome/free-solid-svg-icons'
 
+import { User } from '../models/User';
+
 
 import { Userservice } from '../services/User.service';
 
@@ -31,6 +33,7 @@ export class CaduserComponent implements OnInit {
   }
 
   OnSubmit(f: NgForm) {
+    //console.log(f.value)
 
     const nome = f.value.nome
     const sobrenome = f.value.sobrenome
@@ -38,8 +41,11 @@ export class CaduserComponent implements OnInit {
     const password = f.value.password
     const reset = f.value.reset
 
-    let user ={ nome, sobrenome, email, password }
-
+    //let user ={ nome, sobrenome, email, password }
+    let user =  new User(nome , sobrenome,email ,password);
+   //console.log(user);  
+        
+      
     if (nome == '' || sobrenome == '' || email == '' || password == '' || reset == '') {
       this.camposvazio = 'Campo obrigatório *'
     }
@@ -52,6 +58,7 @@ export class CaduserComponent implements OnInit {
       this.error = "A senha deve ser igual"
      
   }
+  
 
 }
 }
