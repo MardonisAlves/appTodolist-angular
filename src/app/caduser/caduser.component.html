@@ -4,16 +4,16 @@
      
     <form #f="ngForm" (ngSubmit)="OnSubmit(f)" novalidate>
         <h3>Novo Usuário</h3>
-        <div *ngIf="error">
-          <p><strong>{{error}}</strong></p>
-        </div>
+       <div *ngFor= "let obg of error">
+        <p>{{obg.msg}}</p>
+       </div>
 
         <div *ngIf="camposvazio">
           <p><strong>{{camposvazio}}</strong></p>
         </div>
         <div class="form-group">
           <label for="exampleInputEmail1">Nome <span>*</span></label><br>
-          <input type="text" class="form-control"  name="nome" ngModel required #nome="ngModel">
+          <input type="text"  name="nome" ngModel required #nome="ngModel">
           
         </div>
         <div class="form-group">

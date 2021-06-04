@@ -6,16 +6,20 @@ import baseUrl from './../baseURl/baseUrl'
 @Injectable()
 export class Userservice {
     private id = localStorage.getItem('id')
+    
     constructor(private http:HttpClient){
         
     }
 
     Caduser(user:any){
+
         return this.http.post<User>(`${baseUrl}new`, user)
-        .subscribe(res => {
-            console.log(res)
-        },err => {
-            console.log(err)
+        .forEach((res) => {
+            console.log(res) 
+           
+        }).catch(err => {
+            console.log(err.error.list)
         })
+        
     }
 }
