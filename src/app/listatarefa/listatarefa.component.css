@@ -1,0 +1,35 @@
+.container .tableLista {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+table{
+    width: 100%;
+    margin: 10px;
+}
+thead{
+   
+    background-color: rgb(214, 196, 33);
+}
+tbody{
+    background-color:#343a40;
+}
+th{
+    padding: 10px;
+    color: rgb(7, 55, 95);
+}
+td{
+    padding: 5px;
+    color: rgb(243, 233, 233);
+    font-size: 15px;
+}
+
+@media screen and (max-width:550px){
+    th{
+        color: rgb(7, 55, 95);
+    }
+    td{
+        color: rgb(243, 233, 233);
+        font-size: 12px;
+    }
+}

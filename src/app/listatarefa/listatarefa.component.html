@@ -29,6 +29,29 @@
        <app-cards></app-cards>
 
        <!--table list tarefas-->
+    <div class="tableLista">
+        <table>
+            <thead>
+                <th>Nome</th>
+                <th>Local</th>
+                <th>Status</th>
+                <th>Valor</th>
+                <th>Data</th>
+                <th>Actions</th>
+            </thead>
+            <tbody>
+                 <tr *ngFor="let tarefa of listaTarefas">
+                     <td>{{tarefa.nome}}</td>
+                     <td>{{tarefa.local}}</td>
+                     <td>{{tarefa.status}}</td>
+                     <td>{{tarefa.valor}}</td>
+                     <td>{{tarefa.data | date:'shortDate'}}</td>
+                     <td>Ação</td>
+                 </tr>
+            </tbody>
+        </table>
+
+    </div>
     </div>
 </div>
 
