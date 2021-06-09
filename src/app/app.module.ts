@@ -19,6 +19,8 @@ import { FlexLayoutModule } from "@angular/flex-layout";
 import { CardsComponent } from './cards/cards.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AuthGuardService } from './guards/auth-guard.service';
+import { EditTarefaComponent } from './listatarefa/edit-tarefa/edit-tarefa.component';
+
 
 
 
@@ -34,6 +36,8 @@ import { AuthGuardService } from './guards/auth-guard.service';
     FooterComponent,
     SidebarComponent,
     CardsComponent,
+    EditTarefaComponent,
+  
    
   ],
   imports: [

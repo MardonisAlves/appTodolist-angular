@@ -1,9 +1,8 @@
 <div class="page-home">
 
     <div class="logo">
-        
-    </div>
 
+    </div>
     <div class="menu-home">
         <div class="menu-left">
             <nav>
@@ -16,7 +15,6 @@
         <!--menu-rigth-->
         <app-menuhome></app-menuhome>
     </div>
-
 </div>
 
 <div class="flex-container">
@@ -25,33 +23,68 @@
         <app-sidebar></app-sidebar>
     </div>
     <div class="container">
-       <!--app-cards-->
-       <app-cards></app-cards>
+        <!--app-cards-->
+        <app-cards></app-cards>
+        <!--table list tarefas-->
+        <div class="tableLista">
+            <table>
+                <thead>
+                    <th>Nome</th>
+                    <th>Status</th>
+                    <th>Acão</th>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let tarefa of listaTarefas" [class.selected]="tarefa === selectedTarefa"
+                        (click)="onSelect(tarefa)">
+                        <td>{{tarefa.nome}}</td>
+                        <td *ngIf="tarefa.status == 0">Pendente</td>
+                        <td *ngIf="tarefa.status == 1">Pago</td>
+                        <td>Ação'</td>
+                    </tr>
+                </tbody>
+            </table>
+        
+        <!--Tarefas detalhes update-->
 
-       <!--table list tarefas-->
-    <div class="tableLista">
-        <table>
-            <thead>
-                <th>Nome</th>
-                <th>Local</th>
-                <th>Status</th>
-                <th>Valor</th>
-                <th>Data</th>
-                <th>Actions</th>
-            </thead>
-            <tbody>
-                 <tr *ngFor="let tarefa of listaTarefas">
-                     <td>{{tarefa.nome}}</td>
-                     <td>{{tarefa.local}}</td>
-                     <td>{{tarefa.status}}</td>
-                     <td>{{tarefa.valor}}</td>
-                     <td>{{tarefa.data | date:'shortDate'}}</td>
-                     <td>Ação</td>
-                 </tr>
-            </tbody>
-        </table>
+        <div *ngIf="selectedTarefa" class="detalhe-tarefa">
+            <h2>{{selectedTarefa.nome}}</h2>
+            <form #f="ngForm" (ngSubmit)="onUpdateTarefa(f)">
+                <div class="form-group">
+                    <label for="nome">Nome</label>
+                    <input type="text" [(ngModel)]="selectedTarefa.nome" value={{selectedTarefa.nome}} name="nome">
+                </div>
+                <div class="form-group">
+                    <label for="local">Local</label>
+                    <input type="text" [(ngModel)]="selectedTarefa.local" value={{selectedTarefa.local}} name="local">
+                </div>
 
-    </div>
+                <div class="form-group">
+                    <label for="status">Status</label>
+                    <!--<input type="text" [(ngModel)]="selectedTarefa.status" value="" name="status">-->
+                    <select name="status" id=""  [(ngModel)]="selectedTarefa.status">
+                        <option value="">Situação</option>
+                        <option value="1">Pago</option>
+                        <option value="0">Pendente</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="valor">Valor</label>
+                    <input type="text" [(ngModel)]="selectedTarefa.valor" value={{selectedTarefa.valor}} name="valor">
+                </div>
+                <div class="form-group">
+                    <label for="data">Data</label>
+                    <input type="date" [(ngModel)]="selectedTarefa.data" value={{selectedTarefa.data}} name="data">
+                </div>
+                
+                <div class="form-group">
+                    <button type="submit">
+                        Comfirmar
+                    </button>
+                </div>
+            </form>
+        </div>
+        </div>
     </div>
 </div>
 

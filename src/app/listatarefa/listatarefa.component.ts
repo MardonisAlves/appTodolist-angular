@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import {faListAlt , faHome , faBalanceScale} from '@fortawesome/free-solid-svg-icons'
 import  baseURl  from '../baseURl/baseUrl'
 import { Tarefas } from '../models/Tarefas';
@@ -12,6 +13,8 @@ export class ListatarefaComponent implements OnInit {
   id: any
   listaTarefas: any
   faHome=faHome
+  selectedTarefa?:Tarefas
+
   constructor(private http:HttpClient) { 
     this.id = localStorage.getItem('id') || ""
   }
@@ -35,5 +38,15 @@ export class ListatarefaComponent implements OnInit {
    }
 
    )
+  }
+
+  // display tarefa
+  onSelect(tarefa: Tarefas): void{
+    this.selectedTarefa = tarefa
+  }
+
+  // update tarefa
+  onUpdateTarefa(f:NgForm){
+    console.log(f.value)
   }
 }
