@@ -25,7 +25,7 @@ body{
    
 }
 .page-home .logo {
-    background:#343a40;
+    background:#1f2429;
     border-bottom: 1px solid #F5F5F5;
     width: 20%;
     height: 80px;
@@ -60,7 +60,7 @@ body{
 }
 .sidebar{
     width: 20%;
-    background:#343a40;
+    background:#1f2429;
     color: #fff;
 }
 .container{
