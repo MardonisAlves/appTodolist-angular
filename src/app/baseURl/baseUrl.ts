@@ -1,3 +1,3 @@
- const   baseUrl:string =  'https://toliste.herokuapp.com/'
+ const   baseUrl:string =  'https://backtolist.herokuapp.com/tarefas/'
 export default   baseUrl
     
