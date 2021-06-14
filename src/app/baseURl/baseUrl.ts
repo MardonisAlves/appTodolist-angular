@@ -1,3 +1,3 @@
- const   baseUrl:string =  'http://localhost:3000/'
+ const   baseUrl:string =  'https://toliste.herokuapp.com/'
 export default   baseUrl
     
