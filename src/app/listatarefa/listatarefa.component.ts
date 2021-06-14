@@ -1,7 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import {faListAlt , faHome , faBalanceScale} from '@fortawesome/free-solid-svg-icons'
+import { faHome , faEdit} from '@fortawesome/free-solid-svg-icons'
+
+
 import  baseURl  from '../baseURl/baseUrl'
 import { Tarefas } from '../models/Tarefas';
 @Component({
@@ -13,22 +15,29 @@ export class ListatarefaComponent implements OnInit {
   id: any
   listaTarefas: any
   faHome=faHome
+  faEdit=faEdit
   selectedTarefa?:Tarefas
+  showformTarefa:Boolean 
+  showEditTarefa:Boolean
+  p: number = 1;
 
   constructor(private http:HttpClient) { 
-    this.id = localStorage.getItem('id') || ""
+    this.showformTarefa = false
+    this.showEditTarefa = true
+    
   }
 
   ngOnInit(): void {
-    this.getTarefas(this.id);
+    this.getTarefas();
   }
 
   /* Este metodo recebe um parametro id
     o id a gente obtem do localStorage
   */
-  getTarefas(id:any){
+  getTarefas(){
     /* Agora vamos fazer a chamada do metodo do back-end*/
-   return this.http.get<Tarefas>(`${baseURl}tarefas`,id)
+    const id = JSON.parse(localStorage.getItem('id') || "")
+   return this.http.get<Tarefas>(`${baseURl}tarefas/${id}`)
    .subscribe( (data => {
       this.listaTarefas = data
       console.log(this.listaTarefas)
@@ -39,6 +48,29 @@ export class ListatarefaComponent implements OnInit {
 
    )
   }
+  //novaTarefa
+  novaTarefa(f:NgForm){
+    console.log(f.value)
+   
+   const id = 0
+   const userid = JSON.parse(localStorage.getItem("id") || "")
+   const nome = f.value.nome
+   const local = f.value.local
+   const situacao = f.value.situacao
+   const valor = f.value.valor
+   const data = f.value.data
+  let  tarefas = new Tarefas(id ,local ,nome , situacao , userid ,valor , data)
+  console.log(tarefas)
+    return this.http.post<Tarefas>(`${baseURl}tarefa` , tarefas)
+    .subscribe( res =>{
+    console.log(res)
+    } , err => {
+      console.log(err)
+    })
+    
+  }
+
+
 
   // display tarefa
   onSelect(tarefa: Tarefas): void{
@@ -48,5 +80,18 @@ export class ListatarefaComponent implements OnInit {
   // update tarefa
   onUpdateTarefa(f:NgForm){
     console.log(f.value)
+  }
+
+  // excluirtarefa
+  excluirTarefa(id:Number){
+    console.log('Excluir ?' + id)
+  }
+  showForm(){
+    this.showformTarefa = true
+    this.showEditTarefa = false
+  }
+  voltarfrom(){
+    this.showformTarefa = false
+    this.showEditTarefa = true
   }
 }

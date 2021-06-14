@@ -14,6 +14,7 @@ import baseUrl from './../baseURl/baseUrl'
 })
 
 export class HomeComponent implements OnInit {
+
   private storage:Storage
   private id: any
   faHome=faHome

@@ -18,6 +18,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { CardsComponent } from './cards/cards.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import {NgxPaginationModule} from 'ngx-pagination'; 
 import { AuthGuardService } from './guards/auth-guard.service';
 import { EditTarefaComponent } from './listatarefa/edit-tarefa/edit-tarefa.component';
 
@@ -47,7 +48,8 @@ import { EditTarefaComponent } from './listatarefa/edit-tarefa/edit-tarefa.compo
     HttpClientModule,
     FontAwesomeModule,
     FlexLayoutModule,
-    NgbModule
+    NgbModule,
+    NgxPaginationModule
   ],
   providers: [
     AuthGuardService,

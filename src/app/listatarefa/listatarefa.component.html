@@ -31,63 +31,119 @@
                 <thead>
                     <th>Nome</th>
                     <th>Status</th>
-                    <th>Acão</th>
+                    <th>Edit</th>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let tarefa of listaTarefas" [class.selected]="tarefa === selectedTarefa"
-                        (click)="onSelect(tarefa)">
-                        <td>{{tarefa.nome}}</td>
-                        <td *ngIf="tarefa.status == 0">Pendente</td>
-                        <td *ngIf="tarefa.status == 1">Pago</td>
-                        <td>Ação'</td>
+                    <tr *ngFor="let item of listaTarefas |  paginate: { itemsPerPage: 5, currentPage: p }"
+                        [class.selected]="item === selectedTarefa" (click)="onSelect(item)">
+                        <td>{{item.nome}}</td>
+                        <td *ngIf="item.status == 0">Pendente</td>
+                        <td *ngIf="item.status == 1">Pago</td>
+                        <td>
+
+                            <a><fa-icon [icon]="faEdit"></fa-icon>Edit</a>
+
+                        </td>
+
                     </tr>
+                    <tr>
+                        <td colspan="3">
+                            <pagination-controls (pageChange)="p = $event"></pagination-controls>
+                        </td>
+                    </tr>
+
                 </tbody>
             </table>
-        
-        <!--Tarefas detalhes update-->
 
-        <div *ngIf="selectedTarefa" class="detalhe-tarefa">
-            <h2>{{selectedTarefa.nome}}</h2>
-            <form #f="ngForm" (ngSubmit)="onUpdateTarefa(f)">
-                <div class="form-group">
-                    <label for="nome">Nome</label>
-                    <input type="text" [(ngModel)]="selectedTarefa.nome" value={{selectedTarefa.nome}} name="nome">
-                </div>
-                <div class="form-group">
-                    <label for="local">Local</label>
-                    <input type="text" [(ngModel)]="selectedTarefa.local" value={{selectedTarefa.local}} name="local">
-                </div>
 
-                <div class="form-group">
-                    <label for="status">Status</label>
-                    <!--<input type="text" [(ngModel)]="selectedTarefa.status" value="" name="status">-->
-                    <select name="status" id=""  [(ngModel)]="selectedTarefa.status">
-                        <option value="">Situação</option>
-                        <option value="1">Pago</option>
-                        <option value="0">Pendente</option>
-                    </select>
-                </div>
 
-                <div class="form-group">
-                    <label for="valor">Valor</label>
-                    <input type="text" [(ngModel)]="selectedTarefa.valor" value={{selectedTarefa.valor}} name="valor">
+            <!--Tarefas detalhes update-->
+            <div *ngIf="showEditTarefa">
+                <div *ngIf="selectedTarefa" class="detalhe-tarefa">
+                    <h5>{{selectedTarefa.nome}}</h5>
+                    <form #f="ngForm" (ngSubmit)="onUpdateTarefa(f)">
+                        <div class="form-group">
+                            <label for="nome">Nome</label>
+                            <input type="text" [(ngModel)]="selectedTarefa.nome" value={{selectedTarefa.nome}}
+                                name="nome">
+                        </div>
+                        <div class="form-group">
+                            <label for="local">Local</label>
+                            <input type="text" [(ngModel)]="selectedTarefa.local" value={{selectedTarefa.local}}
+                                name="local">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="status">Status</label>
+                            <!--<input type="text" [(ngModel)]="selectedTarefa.status" value="" name="status">-->
+                            <select name="status" id="" [(ngModel)]="selectedTarefa.status">
+                                <option value="">Situação</option>
+                                <option value="1">Pago</option>
+                                <option value="0">Pendente</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="valor">Valor</label>
+                            <input type="text" [(ngModel)]="selectedTarefa.valor" value={{selectedTarefa.valor}}
+                                name="valor">
+                        </div>
+                        <div class="form-group">
+                            <label for="data">Data</label>
+                            <input type="date" [(ngModel)]="selectedTarefa.data" value={{selectedTarefa.data}}
+                                name="data">
+                        </div>
+
+                        <div class="button">
+                            <button type="submit">Salvar</button>
+                            <button class="button-new"><a (click)="showForm()">New</a></button>
+                            <button class="button-del"><a (click)="excluirTarefa(selectedTarefa.id)">Excluir</a></button>
+                            
+                        </div>
+                    </form>
                 </div>
-                <div class="form-group">
-                    <label for="data">Data</label>
-                    <input type="date" [(ngModel)]="selectedTarefa.data" value={{selectedTarefa.data}} name="data">
+            </div>
+            <!--Novo Registro-->
+            <div *ngIf="showformTarefa">
+                <div class="novoRegistro">
+                    <h2>Nova Terefa</h2>
+                    <form #f="ngForm" (ngSubmit)="novaTarefa(f)">
+                        <div class="form-group">
+                            <label for="nome">Nome</label>
+                            <input type="text" ngModel name="nome">
+                        </div>
+                        <div class="form-group">
+                            <label for="local">Local</label>
+                            <input type="text" ngModel name="local">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="status">Status</label>
+                            <select name="situacao" id="" ngModel>
+                                <option value="">Situação</option>
+                                <option value="1">Pago</option>
+                                <option value="0">Pendente</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="valor">Valor</label>
+                            <input type="text" ngModel name="valor">
+                        </div>
+                        <div class="form-group">
+                            <label for="data">Data</label>
+                            <input type="date" ngModel name="data">
+                        </div>
+
+                        <div class="button">
+                            <button type="submit">Salvar</button>
+                            <a (click)="voltarfrom()">Voltar</a>
+                        </div>
+                    </form>
                 </div>
-                
-                <div class="form-group">
-                    <button type="submit">
-                        Comfirmar
-                    </button>
-                </div>
-            </form>
+            </div>
         </div>
-        </div>
+        <!--<div class="footer">
+            footer
+        </div>-->
     </div>
-</div>
-
-<div class="footer">
-    footer
-</div>

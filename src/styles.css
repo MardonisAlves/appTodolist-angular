@@ -77,6 +77,8 @@ body{
     align-items: center;
     border: 1px rgb(223, 225, 226);
     height: 50px;
+    background-color: black;
+    margin: 165px 10px 0px 10px;
     
 }
 

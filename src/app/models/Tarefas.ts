@@ -1,4 +1,5 @@
 export class Tarefas {
+    id:Number
     local: string
     nome: string
     status: boolean
@@ -6,7 +7,16 @@ export class Tarefas {
     valor: number
     data: Date
 
-    constructor(local: string, nome: string, status: boolean, userid: number, valor: number, data: Date) {
+    constructor(
+        id: Number , 
+        local: string, 
+        nome: string, 
+        status: boolean, 
+        userid: number,
+         valor: number,
+         data: Date) 
+    {
+        this.id=id
         this.local = local
         this.nome = nome
         this.status = status
