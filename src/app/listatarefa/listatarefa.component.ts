@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-import { faHome , faEdit} from '@fortawesome/free-solid-svg-icons'
+import { faHome , faEdit, faPlus} from '@fortawesome/free-solid-svg-icons'
 
 
 import  baseURl  from '../baseURl/baseUrl'
@@ -17,6 +17,7 @@ export class ListatarefaComponent implements OnInit {
   listaTarefas: any
   faHome=faHome
   faEdit=faEdit
+  faPlus=faPlus
   selectedTarefa?:Tarefas
   showformTarefa:Boolean 
   showEditTarefa:Boolean

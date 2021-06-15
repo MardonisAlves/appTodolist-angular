@@ -31,7 +31,12 @@
                 <thead>
                     <th>Nome</th>
                     <th>Status</th>
-                    <th>Edit</th>
+                    <th>
+                        <button class="button-new"  (click)="showForm()">
+                            <fa-icon [icon]="faPlus"></fa-icon>
+                            
+                        </button>
+                    </th>
                 </thead>
                 <tbody>
                     <tr *ngFor="let item of listaTarefas |  paginate: { itemsPerPage: 5, currentPage: p }"
@@ -96,7 +101,6 @@
 
                         <div class="button">
                             <button type="submit">Salvar</button>
-                            <button class="button-new"><a (click)="showForm()">New</a></button>
                             <button class="button-del"><a (click)="excluirTarefa(selectedTarefa.id)">Excluir</a></button>
                             
                         </div>
