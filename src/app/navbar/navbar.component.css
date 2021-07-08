@@ -1,34 +1,12 @@
-header  nav a{
+  nav a{
     margin: 10px;
     color: #fff;
 }
-header .menu{
-    display: flex;
-    align-items: center;
-    justify-content: space-between; 
 
-    height: 50px;
+nav a:hover{
     color: #fff;
-    background:rgba(0, 0, 0, .7);
 }
-.logo {
-    margin-left: 10px;
-}
-.logo h2 {
-    font-size: 30px;
-}
-#icon{   
-    margin-right: 10px;
+nav {
+    box-shadow: 1px 2px 3px rgb(161, 157, 157);
 }
 
-@media screen and (max-width:400px){
-    header .logo{
-        font-size: 15px;
-    }
-
-    header .menu{
-        display: flex;
-        flex-direction: column;
-        margin-bottom: 5px;
-    }
-}
