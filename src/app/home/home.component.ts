@@ -2,7 +2,11 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import 'rxjs/add/operator/do';
-import {faListAlt , faHome , faBalanceScale ,faSignOutAlt} from '@fortawesome/free-solid-svg-icons'
+import {faListAlt , 
+  faHome , 
+  faBalanceScale ,
+  faSignOutAlt , faTimesCircle} from '@fortawesome/free-solid-svg-icons'
+
 import { Tarefas } from '../models/Tarefas';
 import baseUrl from './../baseURl/baseUrl'
 
@@ -21,6 +25,7 @@ export class HomeComponent implements OnInit {
   faListAlt=faListAlt
   faBalanceScale=faBalanceScale
   faSignOutAlt=faSignOutAlt
+  faTimesCircle=faTimesCircle
   nome:string = ''
   constructor(private http: HttpClient,private router:Router) { 
     this.storage = window.localStorage
