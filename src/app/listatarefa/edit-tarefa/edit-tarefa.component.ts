@@ -1,12 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { faHome } from '@fortawesome/free-solid-svg-icons'
 import { Tarefas } from 'src/app/models/Tarefas';
 import { HttpClient } from '@angular/common/http';
 import { Location } from '@angular/common';
 import  baseURl  from '../../baseURl/baseUrl'
-import { ActivatedRoute } from '@angular/router';
-
+import { ActivatedRoute, Router } from '@angular/router';
+import { faHome  , faSignOutAlt} from '@fortawesome/free-solid-svg-icons'
 @Component({
   selector: 'app-edit-tarefa',
   templateUrl: './edit-tarefa.component.html',
@@ -15,11 +14,14 @@ import { ActivatedRoute } from '@angular/router';
 export class EditTarefaComponent implements OnInit {
   tarefa: any
   faHome = faHome
+  faSignOutAlt=faSignOutAlt
+  nome:string | ''
   constructor(
+    private router: Router,
     private route: ActivatedRoute,
     private location: Location,
     private http: HttpClient,
-    ) { }
+    ) { this.nome =  localStorage.getItem('nome') || '' }
 
   ngOnInit(): void {
     this.getTarefa();
@@ -52,6 +54,15 @@ export class EditTarefaComponent implements OnInit {
 
   goBack(): void {
     this.location.back();
+  }
+
+  logout() {
+    localStorage.removeItem("id_token");
+    localStorage.removeItem("expires_at");
+    localStorage.removeItem("id")
+    localStorage.removeItem('nome')
+  
+    this.router.navigateByUrl("")
   }
 
 }

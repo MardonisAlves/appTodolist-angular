@@ -17,80 +17,45 @@ body{
 
 }
 
-/*home*/
-.page-home {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-   
-}
-.page-home .logo {
-    background:#1f2429;
-    border-bottom: 1px solid #F5F5F5;
-    width: 20%;
-    height: 80px;
-    color: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    
-}
-.menu-home{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background:#fff;
-    height: 80px;
-    width: 80%;
-}
-
-/*menu-left*/
-.menu-left nav {
-    margin-left: 10px;
-}
-.menu-home nav a {
-    margin-left: 10px;
-}
-
-/*container*/
-.flex-container{
-    display: flex;
-    justify-content: space-between;
-    
-}
-.sidebar{
-    width: 20%;
-    background:#1f2429;
-    color: #fff;
-}
-.container{
-    width: 80%;
-    height: 100vh;
-    background: #F5F5F5;
-}
-
-/*footer*/
-
-.footer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 1px rgb(223, 225, 226);
-    height: 50px;
-    background-color: black;
-    margin: 165px 10px 0px 10px;
-    
-}
-
-
-/*qunado for max-width:640px o height deve ser automatico*/
-
-@media(max-width:640px){
-    .container{
-        height:auto;
-        
+body {
+    overflow-x: hidden;
+  }
+  #sidebar-wrapper {
+    min-height: 100vh;
+    margin-left: -15rem;
+    -webkit-transition: margin .25s ease-out;
+    -moz-transition: margin .25s ease-out;
+    -o-transition: margin .25s ease-out;
+    transition: margin .25s ease-out;
+  }
+  #sidebar-wrapper .sidebar-heading {
+    padding: 0.875rem 1.25rem;
+    font-size: 1.2rem;
+  }
+  #sidebar-wrapper .list-group {
+    width: 15rem;
+  }
+  #page-content-wrapper {
+    min-width: 100vw;
+  }
+  #wrapper.toggled #sidebar-wrapper {
+    margin-left: 0;
+  }
+  @media (min-width: 768px) {
+    #sidebar-wrapper {
+      margin-left: 0;
     }
-}
+    #page-content-wrapper {
+      min-width: 0;
+      width: 100%;
+    }
+    #wrapper.toggled #sidebar-wrapper {
+      margin-left: -15rem;
+    }
+  }
+
+
+
 
 
 

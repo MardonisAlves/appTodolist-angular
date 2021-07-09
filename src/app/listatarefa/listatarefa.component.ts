@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-import { faHome , faEdit, faPlus , faTrash} from '@fortawesome/free-solid-svg-icons'
+import { faHome , faEdit, faPlus , faTrash , faSignOutAlt} from '@fortawesome/free-solid-svg-icons'
 
 
 import  baseURl  from '../baseURl/baseUrl'
@@ -16,15 +16,16 @@ import { Tarefas } from '../models/Tarefas';
 export class ListatarefaComponent implements OnInit {
   id: any
   listaTarefas: any
+  faSignOutAlt=faSignOutAlt
   faHome=faHome
   faEdit=faEdit
   faPlus=faPlus
   faTrash=faTrash
   p: number = 1;
-
+  nome: string = ''
   constructor(private http:HttpClient, private  router:Router) { 
   
-   
+    this.nome =  localStorage.getItem('nome') || ''
     
   }
 
@@ -55,6 +56,15 @@ export class ListatarefaComponent implements OnInit {
   // excluirtarefa
   excluirTarefa(id:Number){
     console.log('Excluir ?' + id)
+  }
+
+  logout() {
+    localStorage.removeItem("id_token");
+    localStorage.removeItem("expires_at");
+    localStorage.removeItem("id")
+    localStorage.removeItem('nome')
+  
+    this.router.navigateByUrl("")
   }
   
 

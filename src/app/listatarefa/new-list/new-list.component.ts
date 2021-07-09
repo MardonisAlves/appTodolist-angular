@@ -4,7 +4,8 @@ import { HttpClient } from '@angular/common/http';
 import { Location } from '@angular/common';
 import  baseURl  from '../../baseURl/baseUrl'
 import { Tarefas } from '../../models/Tarefas';
-import { faHome , faEdit, faPlus} from '@fortawesome/free-solid-svg-icons'
+import { faHome ,faSignOutAlt } from '@fortawesome/free-solid-svg-icons'
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-new-list',
   templateUrl: './new-list.component.html',
@@ -12,9 +13,14 @@ import { faHome , faEdit, faPlus} from '@fortawesome/free-solid-svg-icons'
 })
 export class NewListComponent implements OnInit {
   faHome = faHome
+  faSignOutAlt=faSignOutAlt
+  nome:string | ''
   constructor(
+    private router:Router,
     private http: HttpClient,
-    private location: Location) { }
+    private location: Location) { 
+      this.nome =  localStorage.getItem('nome') || ''
+    }
 
   ngOnInit(): void {
   }
@@ -46,6 +52,15 @@ export class NewListComponent implements OnInit {
 
   goBack():void{
     this.location.back();
+  }
+
+  logout() {
+    localStorage.removeItem("id_token");
+    localStorage.removeItem("expires_at");
+    localStorage.removeItem("id")
+    localStorage.removeItem('nome')
+  
+    this.router.navigateByUrl("")
   }
 
 }

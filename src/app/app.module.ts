@@ -11,10 +11,8 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { CaduserComponent } from './caduser/caduser.component'
 import { Userservice } from './services/User.service';
-import { MenuhomeComponent } from './menuhome/menuhome.component';
 import { ListatarefaComponent } from './listatarefa/listatarefa.component';
 import { FooterComponent } from './footer/footer.component';
-import { SidebarComponent } from './sidebar/sidebar.component';
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { CardsComponent } from './cards/cards.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -22,7 +20,7 @@ import {NgxPaginationModule} from 'ngx-pagination';
 import { AuthGuardService } from './guards/auth-guard.service';
 import { EditTarefaComponent } from './listatarefa/edit-tarefa/edit-tarefa.component';
 import { NewListComponent } from './listatarefa/new-list/new-list.component';
-
+import {SidebarDirective} from './sidebar.directive'
 
 
 
@@ -33,13 +31,12 @@ import { NewListComponent } from './listatarefa/new-list/new-list.component';
     HomeComponent,
     NavbarComponent,
     CaduserComponent,
-    MenuhomeComponent,
     ListatarefaComponent,
     FooterComponent,
-    SidebarComponent,
     CardsComponent,
     EditTarefaComponent,
     NewListComponent,
+    SidebarDirective
   
    
   ],
