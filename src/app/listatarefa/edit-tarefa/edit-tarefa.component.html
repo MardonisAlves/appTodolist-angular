@@ -1,1 +1,74 @@
-<p>edit-tarefa works!</p>
+
+    <div class="page-home">
+        <div class="logo">
+        </div>
+        <div class="menu-home">
+            <div class="menu-left">
+                <nav>
+                    <a href="/home">
+                        <fa-icon [icon]="faHome" id="icon"></fa-icon>Home
+                    </a>
+                </nav>
+            </div>
+    
+            <!--menu-rigth-->
+            <app-menuhome></app-menuhome>
+        </div>
+    </div>
+    
+    <div class="flex-container">
+        <div class="sidebar">
+            <!--sidebar-->
+            <app-sidebar></app-sidebar>
+        </div>
+
+        <div class="container">
+            <div *ngIf="tarefa">
+            <div *ngFor="let item of tarefa">
+            <h5>{{item.nome}}</h5>
+
+            <form #f="ngForm" (ngSubmit)="onUpdateTarefa(f)">
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                      <label for="inputEmail4">Nome</label>
+                      <input type="text" class="form-control"  placeholder={{item.nome}} [(ngModel)]="item.nome" name="nome">
+                    </div>
+          
+                    <div class="form-group col-md-6">
+                      <label for="inputPassword4">local</label>
+                      <input type="text" class="form-control"  placeholder={{item.local}} [(ngModel)]="item.local" name="local">
+                    </div>
+                  </div>
+          
+          
+                  <div class="form-row">
+                    <div class="form-group col-md-6">
+                      <label for="inputCity">Valor</label>
+                      <input type="text" class="form-control" placeholder={{item.valor}} [(ngModel)]="item.valor" name="valor">
+                    </div>
+                    <div class="form-group col-md-4">
+                      <label for="inputState">Situação</label>
+                      <select  class="form-control"  [(ngModel)]="item.situacao" name="status">
+                          <option value="">Situação</option>
+                          <option value="1">Pago</option>
+                          <option value="0">Pendente</option>
+                      </select>
+                    </div>
+                    <div class="form-group col-md-2">
+                      <label for="inputZip">Data</label>
+                      <input type="date" class="form-control" placeholder={{item.data}} [(ngModel)]="item.data" name="data">
+                    </div>
+                  </div>
+                  <button type="submit" class="btn btn-primary">Atualizar</button>
+            </form>
+          </div>
+        </div>
+        </div>
+    
+    
+
+
+
+  
+
+ 

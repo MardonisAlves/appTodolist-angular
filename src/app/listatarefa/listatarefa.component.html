@@ -1,7 +1,5 @@
 <div class="page-home">
-
     <div class="logo">
-
     </div>
     <div class="menu-home">
         <div class="menu-left">
@@ -23,8 +21,6 @@
         <app-sidebar></app-sidebar>
     </div>
     <div class="container">
-        <!--new list-->
-        <app-new-list></app-new-list>
 
         <!--table list tarefas-->
         <div class="tableLista">
@@ -32,18 +28,23 @@
                 <thead>
                     <th>Nome</th>
                     <th>Status</th>
-                    <th>Action</th>
+                    <th>
+                        <a routerLink="/new">
+                            <fa-icon [icon]="faPlus"></fa-icon> new
+                        </a>
+                    </th>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let item of listaTarefas |  paginate: { itemsPerPage: 5, currentPage: p }"
-                        [class.selected]="item === selectedTarefa" (click)="onSelect(item)">
+                    <tr *ngFor="let item of listaTarefas |  paginate: { itemsPerPage: 5, currentPage: p }">
                         <td>{{item.nome}}</td>
                         <td *ngIf="item.status == 0">Pendente</td>
                         <td *ngIf="item.status == 1">Pago</td>
                         <td>
-
+                            <a routerLink="/edit/{{item.id}}">
+                                <fa-icon [icon]="faEdit"></fa-icon> edit
+                            </a>
                             <a>
-                                <fa-icon [icon]="faEdit"></fa-icon>Edit
+                                <fa-icon [icon]="faTrash"></fa-icon> delete
                             </a>
 
                         </td>
@@ -58,55 +59,5 @@
                 </tbody>
             </table>
         </div>
-
-
-
-        <!--Tarefas detalhes update-->
-        <div *ngIf="showEditTarefa">
-            <div *ngIf="selectedTarefa" class="detalhe-tarefa">
-                <h5>{{selectedTarefa.nome}}</h5>
-                <form #f="ngForm" (ngSubmit)="onUpdateTarefa(f)">
-                    <div class="form-group">
-                        <label for="nome">Nome</label>
-                        <input type="text" [(ngModel)]="selectedTarefa.nome" value={{selectedTarefa.nome}} name="nome">
-                    </div>
-                    <div class="form-group">
-                        <label for="local">Local</label>
-                        <input type="text" [(ngModel)]="selectedTarefa.local" value={{selectedTarefa.local}}
-                            name="local">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="status">Status</label>
-                        <!--<input type="text" [(ngModel)]="selectedTarefa.status" value="" name="status">-->
-                        <select name="status" id="" [(ngModel)]="selectedTarefa.status">
-                            <option value="">Situação</option>
-                            <option value="1">Pago</option>
-                            <option value="0">Pendente</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="valor">Valor</label>
-                        <input type="text" [(ngModel)]="selectedTarefa.valor" value={{selectedTarefa.valor}}
-                            name="valor">
-                    </div>
-                    <div class="form-group">
-                        <label for="data">Data</label>
-                        <input type="date" [(ngModel)]="selectedTarefa.data" value={{selectedTarefa.data}} name="data">
-                    </div>
-
-                    <div class="button">
-                        <button type="submit">Salvar</button>
-                        <button type="button" class="button-del"><a (click)="excluirTarefa(selectedTarefa.id)"
-                                class="button-del">Excluir</a></button>
-                    </div>
-                </form>
-
-            </div>
-        </div>
-
-        <!--<div class="footer">
-            footer
-        </div>-->
+       
     </div>

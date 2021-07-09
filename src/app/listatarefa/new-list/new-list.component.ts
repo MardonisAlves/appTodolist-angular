@@ -4,13 +4,14 @@ import { HttpClient } from '@angular/common/http';
 import { Location } from '@angular/common';
 import  baseURl  from '../../baseURl/baseUrl'
 import { Tarefas } from '../../models/Tarefas';
+import { faHome , faEdit, faPlus} from '@fortawesome/free-solid-svg-icons'
 @Component({
   selector: 'app-new-list',
   templateUrl: './new-list.component.html',
   styleUrls: ['./new-list.component.css']
 })
 export class NewListComponent implements OnInit {
-
+  faHome = faHome
   constructor(
     private http: HttpClient,
     private location: Location) { }

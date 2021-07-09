@@ -1,38 +1,63 @@
-<!--Novo Registro-->
-<div>
-    <div class="novoRegistro">
-        <h5>Nova Terefa</h5>
-        <form #f="ngForm" (ngSubmit)="novaTarefa(f)">
-            <div class="form-group">
-                <label for="nome">Nome</label>
-                <input type="text" ngModel name="nome">
-            </div>
-            <div class="form-group">
-                <label for="local">Local</label>
-                <input type="text" ngModel name="local">
-            </div>
 
-            <div class="form-group">
-                <label for="status">Status</label>
-                <select name="situacao" id="" ngModel>
-                    <option value="">Situação</option>
-                    <option value="1">Pago</option>
-                    <option value="0">Pendente</option>
-                </select>
+    <div class="page-home">
+        <div class="logo">
+        </div>
+        <div class="menu-home">
+            <div class="menu-left">
+                <nav>
+                    <a href="/home">
+                        <fa-icon [icon]="faHome" id="icon"></fa-icon>Home
+                    </a>
+                </nav>
             </div>
-
-            <div class="form-group">
-                <label for="valor">Valor</label>
-                <input type="text" ngModel name="valor">
-            </div>
-            <div class="form-group">
-                <label for="data">Data</label>
-                <input type="date" ngModel name="data">
-            </div>
-
-            <div class="button">
-                <button type="submit">Salvar</button>
-            </div>
-        </form>
+    
+            <!--menu-rigth-->
+            <app-menuhome></app-menuhome>
+        </div>
     </div>
-</div>
+    
+    <div class="flex-container">
+        <div class="sidebar">
+            <!--sidebar-->
+            <app-sidebar></app-sidebar>
+        </div>
+
+        <div class="container">
+
+            <form #f="ngForm" (ngSubmit)="novaTarefa(f)">
+                <div class="form-row">
+                  <div class="form-group col-md-6">
+                    <label for="inputEmail4">Nome</label>
+                    <input type="text" class="form-control"  placeholder="Nome" ngModel name="nome">
+                  </div>
+        
+                  <div class="form-group col-md-6">
+                    <label for="inputPassword4">local</label>
+                    <input type="text" class="form-control"  placeholder="Local" ngModel name="local">
+                  </div>
+                </div>
+        
+        
+                <div class="form-row">
+                  <div class="form-group col-md-6">
+                    <label for="inputCity">Valor</label>
+                    <input type="text" class="form-control" ngModel name="valor">
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label for="inputState">Situação</label>
+                    <select  class="form-control" ngModel name="situacao">
+                        <option value="">Situação</option>
+                        <option value="1">Pago</option>
+                        <option value="0">Pendente</option>
+                    </select>
+                  </div>
+                  <div class="form-group col-md-2">
+                    <label for="inputZip">Data</label>
+                    <input type="date" class="form-control" ngModel name="data">
+                  </div>
+                </div>
+                <button type="submit" class="btn btn-primary">Salvar</button>
+              </form>
+        </div>
+    
+    

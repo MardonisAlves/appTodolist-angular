@@ -4,6 +4,9 @@
     align-items: center;
     margin-top: 10px;
 }
+a {
+    margin: 5px;
+}
 table{
     margin: 0px 0px 0px 0px;
     width: 100%;
