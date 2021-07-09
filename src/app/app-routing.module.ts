@@ -14,8 +14,8 @@ const routes: Routes = [
   { path: '' , component: LoginComponent },
   { path: 'home' , component: HomeComponent , canActivate:[AuthGuardService]},
   {path: 'caduser' , component: CaduserComponent},
-  {path: 'new' , component: NewListComponent},
-  {path: 'edit/:id' , component: EditTarefaComponent},
+  {path: 'new' , component: NewListComponent ,canActivate:[AuthGuardService]},
+  {path: 'edit/:id' , component: EditTarefaComponent ,canActivate:[AuthGuardService]},
   {path: 'listatarefa' , component:ListatarefaComponent , canActivate:[AuthGuardService]}
 ];
 
