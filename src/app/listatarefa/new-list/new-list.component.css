@@ -1,0 +1,102 @@
+.container .tableLista {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+table{
+    margin: 0px 0px 0px 0px;
+    width: 100%;
+    height: 260px;
+    border-color:#bcc7d3;
+    
+}
+thead{
+   
+    background-color: rgb(214, 196, 33);
+}
+tbody{
+    background-color:#1f2429;
+}
+th{
+    padding: 20px;
+    color: rgb(7, 55, 95);
+}
+td{
+    padding: 10px;
+    color: rgb(243, 233, 233);
+    font-size: 15px;
+}
+
+/*detalhes tarefas */
+.detalhe-tarefa{
+    width: 100%;
+    margin: 0px;
+    color: #696e72;
+}
+
+ .form-group{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+label {
+    font-size: 12px;
+    margin: 5px;
+}
+input  , select{
+    font-size: 12px;
+    margin: 3px 0px 0px 0px;
+    padding: 5px 0px 5px 0px;
+    border: 1px solid #bcc7d3 ;
+    border-radius: 5px;
+    width: 80%;
+    color:#696e72;
+}
+button{
+    margin: 5px;
+    padding: 5px;
+    color: whitesmoke;
+    background: rgb(2, 81, 100);
+    border: none;
+}
+
+.button-new{
+    text-align: left;
+    background: rgb(22, 107, 4);
+}
+.button-del{
+    background: rgb(245, 69, 4);
+    color:whitesmoke;
+}
+
+
+@media screen and (max-width:800px){
+    .container{
+        height: auto;
+    }
+    .tableLista{
+        display: flex;
+        flex-direction: column;
+    }
+    table {
+
+        margin: 10px;
+        border: none;
+    }
+    th{
+        font-size: 12px;
+        color: rgb(7, 55, 95);
+    }
+    th:nth-child(2) , td:nth-child(2){
+        display: none;
+    }
+   
+    td{
+        color: rgb(243, 233, 233);
+        font-size: 15px;
+    }
+
+   
+}

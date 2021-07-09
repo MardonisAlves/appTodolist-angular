@@ -21,6 +21,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {NgxPaginationModule} from 'ngx-pagination'; 
 import { AuthGuardService } from './guards/auth-guard.service';
 import { EditTarefaComponent } from './listatarefa/edit-tarefa/edit-tarefa.component';
+import { NewListComponent } from './listatarefa/new-list/new-list.component';
 
 
 
@@ -38,6 +39,7 @@ import { EditTarefaComponent } from './listatarefa/edit-tarefa/edit-tarefa.compo
     SidebarComponent,
     CardsComponent,
     EditTarefaComponent,
+    NewListComponent,
   
    
   ],

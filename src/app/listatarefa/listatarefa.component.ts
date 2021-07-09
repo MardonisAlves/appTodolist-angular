@@ -50,32 +50,7 @@ export class ListatarefaComponent implements OnInit {
 
    )
   }
-  //novaTarefa
-  novaTarefa(f:NgForm){
-    console.log(f.value)
-   
-   const id = 0
-   const userid = JSON.parse(localStorage.getItem("id") || "")
-   const nome = f.value.nome
-   const local = f.value.local
-   const situacao = f.value.situacao
-   const valor = f.value.valor
-   const data = f.value.data
-  let  tarefas = new Tarefas(id ,local ,nome , situacao , userid ,valor , data)
-  console.log(tarefas)
-    return this.http.post<Tarefas>(`${baseURl}tarefa` , tarefas)
-    .subscribe( res =>{
-    console.log(res)
-    this.router.navigateByUrl('home')
-    } , err => {
-      console.log(err)
-      
-    })
-    
-  }
-
-
-
+  
   // display tarefa
   onSelect(tarefa: Tarefas): void{
     this.selectedTarefa = tarefa

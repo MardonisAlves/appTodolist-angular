@@ -1,0 +1,38 @@
+<!--Novo Registro-->
+<div>
+    <div class="novoRegistro">
+        <h5>Nova Terefa</h5>
+        <form #f="ngForm" (ngSubmit)="novaTarefa(f)">
+            <div class="form-group">
+                <label for="nome">Nome</label>
+                <input type="text" ngModel name="nome">
+            </div>
+            <div class="form-group">
+                <label for="local">Local</label>
+                <input type="text" ngModel name="local">
+            </div>
+
+            <div class="form-group">
+                <label for="status">Status</label>
+                <select name="situacao" id="" ngModel>
+                    <option value="">Situação</option>
+                    <option value="1">Pago</option>
+                    <option value="0">Pendente</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="valor">Valor</label>
+                <input type="text" ngModel name="valor">
+            </div>
+            <div class="form-group">
+                <label for="data">Data</label>
+                <input type="date" ngModel name="data">
+            </div>
+
+            <div class="button">
+                <button type="submit">Salvar</button>
+            </div>
+        </form>
+    </div>
+</div>
