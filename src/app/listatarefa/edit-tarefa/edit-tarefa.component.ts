@@ -15,13 +15,13 @@ export class EditTarefaComponent implements OnInit {
   tarefa: any
   faHome = faHome
   faSignOutAlt=faSignOutAlt
-  nome:string | ''
+  
   constructor(
     private router: Router,
     private route: ActivatedRoute,
     private location: Location,
     private http: HttpClient,
-    ) { this.nome =  localStorage.getItem('nome') || '' }
+    ) { }
 
   ngOnInit(): void {
     this.getTarefa();

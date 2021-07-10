@@ -4,6 +4,7 @@ import * as moment from 'moment'
 import 'rxjs/add/operator/do';
 import { shareReplay } from 'rxjs/operators';
 import  baseUrl from './baseURl/baseUrl'
+import { Router } from '@angular/router';
 
 
 
@@ -15,7 +16,7 @@ export class AuthServiceService {
    
   private storage : Storage
   
-  constructor(private http: HttpClient ) {
+  constructor(private http: HttpClient ,private router:Router) {
     this.storage = window.localStorage
     
     
@@ -52,6 +53,7 @@ export class AuthServiceService {
     this.storage.removeItem("id_token");
     this.storage.removeItem("expires_at");
     this.storage.removeItem("id")
+    this.router.navigateByUrl("")
   }
 
   public isLoggedIn() {

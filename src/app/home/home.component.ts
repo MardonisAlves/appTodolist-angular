@@ -26,6 +26,7 @@ export class HomeComponent implements OnInit {
   faSignOutAlt=faSignOutAlt
   faTimesCircle=faTimesCircle
   nome:string = ''
+  
   constructor(private http: HttpClient,private router:Router) { 
     this.storage = window.localStorage
     this.id = localStorage.getItem('id')
@@ -48,17 +49,6 @@ export class HomeComponent implements OnInit {
         //this.router.navigateByUrl("")
       }
     } )
-  }
-
-
-
-  logout() {
-    localStorage.removeItem("id_token");
-    localStorage.removeItem("expires_at");
-    localStorage.removeItem("id")
-    localStorage.removeItem('nome')
-  
-    this.router.navigateByUrl("")
   }
 
 }

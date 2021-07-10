@@ -20,7 +20,12 @@ import {NgxPaginationModule} from 'ngx-pagination';
 import { AuthGuardService } from './guards/auth-guard.service';
 import { EditTarefaComponent } from './listatarefa/edit-tarefa/edit-tarefa.component';
 import { NewListComponent } from './listatarefa/new-list/new-list.component';
-import {SidebarDirective} from './sidebar.directive'
+import {SidebarDirective} from './sidebar.directive';
+import { SidebarComponent } from './template/sidebar/sidebar.component';
+import { NavbartoogleComponent } from './template/navbartoogle/navbartoogle.component';
+import { CollapseComponent } from './template/collapse/collapse.component';
+
+
 
 
 
@@ -36,7 +41,10 @@ import {SidebarDirective} from './sidebar.directive'
     CardsComponent,
     EditTarefaComponent,
     NewListComponent,
-    SidebarDirective
+    SidebarDirective,
+    SidebarComponent,
+    NavbartoogleComponent,
+    CollapseComponent
   
    
   ],
