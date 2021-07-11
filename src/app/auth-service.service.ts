@@ -5,7 +5,7 @@ import 'rxjs/add/operator/do';
 import { shareReplay } from 'rxjs/operators';
 import  baseUrl from './baseURl/baseUrl'
 import { Router } from '@angular/router';
-
+import { Location } from '@angular/common';
 
 
 
@@ -16,7 +16,10 @@ export class AuthServiceService {
    
   private storage : Storage
   
-  constructor(private http: HttpClient ,private router:Router) {
+  constructor(
+    private http: HttpClient ,
+    private router:Router,
+    private location:Location) {
     this.storage = window.localStorage
     
     
@@ -70,5 +73,9 @@ export class AuthServiceService {
     const expiresAt = JSON.parse(expiration);
     console.log(expiresAt)
     return moment(expiresAt).format();
+  }
+
+  goBack(): void {
+    this.location.back();
   }
 }

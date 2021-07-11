@@ -24,6 +24,11 @@ import {SidebarDirective} from './sidebar.directive';
 import { SidebarComponent } from './template/sidebar/sidebar.component';
 import { NavbartoogleComponent } from './template/navbartoogle/navbartoogle.component';
 import { CollapseComponent } from './template/collapse/collapse.component';
+import { CardpendenteComponent } from './cards/cardpendente/cardpendente.component';
+import { CardlistaComponent } from './cards/cardlista/cardlista.component';
+import { CardvalortarefaComponent } from './cards/cardvalortarefa/cardvalortarefa.component';
+import { CardtarefaconcluidaComponent } from './cards/cardtarefaconcluida/cardtarefaconcluida.component';
+
 
 
 
@@ -44,7 +49,11 @@ import { CollapseComponent } from './template/collapse/collapse.component';
     SidebarDirective,
     SidebarComponent,
     NavbartoogleComponent,
-    CollapseComponent
+    CollapseComponent,
+    CardpendenteComponent,
+    CardlistaComponent,
+    CardvalortarefaComponent,
+    CardtarefaconcluidaComponent
   
    
   ],

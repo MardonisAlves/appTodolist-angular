@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { Tarefas } from 'src/app/models/Tarefas';
-import { HttpClient } from '@angular/common/http';
-import { Location } from '@angular/common';
-import  baseURl  from '../../baseURl/baseUrl'
-import { ActivatedRoute, Router } from '@angular/router';
 import { faHome  , faSignOutAlt} from '@fortawesome/free-solid-svg-icons'
+import { TarefaService } from 'src/app/services/Tarefa.service';
+import { ActivatedRoute } from '@angular/router';
+import { Tarefas } from 'src/app/models/Tarefas';
+import { AuthServiceService } from 'src/app/auth-service.service';
+
 @Component({
   selector: 'app-edit-tarefa',
   templateUrl: './edit-tarefa.component.html',
@@ -17,52 +17,45 @@ export class EditTarefaComponent implements OnInit {
   faSignOutAlt=faSignOutAlt
   
   constructor(
-    private router: Router,
-    private route: ActivatedRoute,
-    private location: Location,
-    private http: HttpClient,
+    private route:ActivatedRoute,
+    private tarefaService : TarefaService,
+    private authService: AuthServiceService
     ) { }
 
   ngOnInit(): void {
     this.getTarefa();
   }
 
+    getTarefa():void{
+     const id = Number(this.route.snapshot.paramMap.get('id'));
+     this.tarefaService.gettarefa(id)
+     .subscribe(tarefa => this.tarefa = tarefa)
 
-   /* Este metodo recebe um parametro id
-    o id a gente obtem do localStorage
-  */
-    getTarefa(){
-      /* extrair o parametro id da rota e converte para um Number*/
-    const id = Number(this.route.snapshot.paramMap.get('id'));
-     return this.http.get<Tarefas>(`${baseURl}tarefa/${id}`)
-     .subscribe( (data => {
-        this.tarefa = data
-        console.log(this.tarefa)
-  
-     }),err => {
-        console.log(err)
-     }
-  
-     )
     }
-  onUpdateTarefa(f: NgForm){
-    console.log(f.value)
 
-    this.goBack();
+  onUpdateTarefa(f: NgForm){
+    const userid = Number(localStorage.getItem('id'))
+    const id = Number(this.route.snapshot.paramMap.get('id'))
+    const nome = f.value.nome
+    const data = f.value.data
+    const valor = f.value.valor
+    const status = f.value.status
+    const local = f.value.local
+
+    let tarefa = new Tarefas(id, local , nome, status ,userid ,valor , data);
+    this.tarefaService.updateTarefa(id , tarefa)
+    .subscribe(res => {
+      this.goBack()
+    }, err => {
+      console.log(err)
+    })
+
+    
   }
 
 
   goBack(): void {
-    this.location.back();
-  }
-
-  logout() {
-    localStorage.removeItem("id_token");
-    localStorage.removeItem("expires_at");
-    localStorage.removeItem("id")
-    localStorage.removeItem('nome')
-  
-    this.router.navigateByUrl("")
+    this.authService.goBack();
   }
 
 }
