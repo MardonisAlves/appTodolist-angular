@@ -1,6 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { faEdit, faPlus, faTrashAlt} from '@fortawesome/free-solid-svg-icons'
 import { TarefaService } from '../services/Tarefa.service';
+
+interface Alert {
+  type: string;
+  message: string;
+  id:number
+}
+
 @Component({
   selector: 'app-listatarefa',
   templateUrl: './listatarefa.component.html',
@@ -8,6 +15,7 @@ import { TarefaService } from '../services/Tarefa.service';
 })
 
 export class ListatarefaComponent implements OnInit {
+  alerts: Alert[]=[];
   id: any
   listaTarefas: any
   faEdit = faEdit
@@ -18,13 +26,46 @@ export class ListatarefaComponent implements OnInit {
   constructor(private tarefaService: TarefaService) {}
   ngOnInit(): void {
     this.getTarefas();
+    console.log('ngOnit')
   }
-  getTarefas():void {
-     this.tarefaService.getTarefas().subscribe(listaTarefas => this.listaTarefas = (listaTarefas))
+  getTarefas() {
+   return  this.tarefaService.getTarefas().subscribe(listaTarefas => this.listaTarefas = (listaTarefas))
   }
-  // excluirtarefa
-  excluirTarefa(id: Number) {
-    console.log('Excluir ?' + id)
+  
+
+
+  close(alert: Alert) {
+    this.alerts.splice(this.alerts.indexOf(alert), 1);
   }
+
+  showAlert(nome:string,id:number){
+    console.log(nome);
+    const ALERTS: Alert[] = [{
+      type: 'warning',
+      message: 'Deseja deleletar ' + nome,
+      id:id
+    }];
+
+    this.alerts = ALERTS
+  }
+
+  deleteTarefa(id:number):void{
+    /*Agora é so fazer o metodo deleteTarefa no tarefaService*/
+    /* apagar o array alert*/
+    this.alerts = [];
+    /*chamar o metodo gettarefas()*/
+    this.ngOnInit()
+    /* chamar o metodo deletado com sucesso*/
+    const ALERTS: Alert[] = [{
+      type: 'primary',
+      message: 'Tarefa deletada com sucesso',
+      id:id
+    }];
+    this.alerts = ALERTS;
+    console.log(id)
+  
+  }
+
+
 
 }

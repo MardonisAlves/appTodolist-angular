@@ -26,6 +26,17 @@
           
           <div class="container-fluid">
             <h1 class="mt-4">Lista de Tarefas</h1>
+
+            <p *ngFor="let alert of alerts">
+                <ngb-alert [type]="alert.type" 
+                (closed)="close(alert)">
+                {{ alert.message }} 
+                <a  (click)="deleteTarefa(alert.id)">
+                  <fa-icon [icon]="faTrashAlt"></fa-icon> 
+                </a>
+              </ngb-alert>
+              </p>
+              
             <div class="tableLista">
                 <table>
                     <thead>
@@ -38,6 +49,7 @@
                         </th>
                     </thead>
                     <tbody>
+                        
                         <tr *ngFor="let item of listaTarefas |  paginate: { itemsPerPage: 5, currentPage: p }">
                             <td>{{item.nome}}</td>
                             <td *ngIf="item.status == 0">Pendente</td>
@@ -46,7 +58,7 @@
                                 <a routerLink="/edit/{{item.id}}" class="text-success">
                                     <fa-icon [icon]="faEdit"></fa-icon> 
                                 </a>
-                                <a class="text-danger">
+                                <a class="text-danger" (click)="showAlert(item.nome , item.id)">
                                     <fa-icon [icon]="faTrashAlt"></fa-icon> 
                                 </a>
     
