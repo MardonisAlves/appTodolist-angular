@@ -24,7 +24,7 @@
             <div class="container-fluid">
               <div *ngIf="tarefa">
                 <div *ngFor="let item of tarefa">
-                <h5>{{item.nome}}</h5>
+                <h5 class="mt-4">{{item.nome}}</h5>
     
                 <form #f="ngForm" (ngSubmit)="onUpdateTarefa(f)">
                     <div class="form-row">
@@ -58,8 +58,10 @@
                           <input type="date" class="form-control" placeholder={{item.data}} [(ngModel)]="item.data" name="data">
                         </div>
                       </div>
-                      <a class="btn btn-info" (click)="goBack()">back</a>
-                      <button type="submit" class="btn btn-primary">Atualizar</button>
+                      <a class="btn btn-secondary" (click)="goBack()">
+                        <fa-icon [icon]="faUndoAlt"></fa-icon>back</a>
+                      <button type="submit" class="btn btn-primary">
+                        <fa-icon [icon]="faSync"></fa-icon>Atualizar</button>
                 </form>
               </div>
             </div>

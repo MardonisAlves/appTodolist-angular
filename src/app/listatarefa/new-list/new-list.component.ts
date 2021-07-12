@@ -3,13 +3,14 @@ import { NgForm } from '@angular/forms';
 import { Tarefas } from '../../models/Tarefas';
 import { TarefaService } from 'src/app/services/Tarefa.service';
 import { AuthServiceService } from 'src/app/auth-service.service';
+import { faCloudUploadAlt } from '@fortawesome/free-solid-svg-icons';
 @Component({
   selector: 'app-new-list',
   templateUrl: './new-list.component.html',
   styleUrls: ['./new-list.component.css']
 })
 export class NewListComponent implements OnInit {
-
+  faCloudUploadAlt=faCloudUploadAlt
   constructor(
     private tarefaService: TarefaService,
     private authservice:AuthServiceService) { }

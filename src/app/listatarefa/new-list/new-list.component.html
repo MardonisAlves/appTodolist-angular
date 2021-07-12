@@ -23,6 +23,7 @@
 
 
             <div class="container-fluid">
+              <h1 class="mt-4">Nova Tarefa</h1>
               <form #f="ngForm" (ngSubmit)="novaTarefa(f)">
                 <div class="form-row">
                   <div class="form-group col-md-6">
@@ -55,7 +56,9 @@
                     <input type="date" class="form-control" ngModel name="data">
                   </div>
                 </div>
-                <button type="submit" class="btn btn-primary">Salvar</button>
+                <button type="submit" class="btn btn-primary">
+                  <fa-icon [icon]="faCloudUploadAlt"></fa-icon>Salvar
+                </button>
               </form>
             </div>
           </div>

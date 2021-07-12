@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { faHome  , faSignOutAlt} from '@fortawesome/free-solid-svg-icons'
+import {faUndoAlt , faSync} from '@fortawesome/free-solid-svg-icons'
 import { TarefaService } from 'src/app/services/Tarefa.service';
 import { ActivatedRoute } from '@angular/router';
 import { Tarefas } from 'src/app/models/Tarefas';
@@ -13,9 +13,8 @@ import { AuthServiceService } from 'src/app/auth-service.service';
 })
 export class EditTarefaComponent implements OnInit {
   tarefa: any
-  faHome = faHome
-  faSignOutAlt=faSignOutAlt
-  
+  faUndoAlt=faUndoAlt
+  faSync=faSync
   constructor(
     private route:ActivatedRoute,
     private tarefaService : TarefaService,
