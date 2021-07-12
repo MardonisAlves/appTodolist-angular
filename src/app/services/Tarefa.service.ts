@@ -32,7 +32,7 @@ export class TarefaService {
 
   /*updateTarefa*/
 
-  updateTarefa(id:Number , tarefa:Tarefas): Observable<Tarefas>{
+  updateTarefa(id:number ,tarefa:Tarefas): Observable<Tarefas>{
   console.log(id , tarefa)
    return this.http.put<Tarefas>(`${baseURl}uptarefa/${id}` , tarefa)
    
