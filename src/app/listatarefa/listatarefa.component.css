@@ -30,12 +30,14 @@ tbody{
     background-color:#1f2429;
 }
 th{
+    text-align: left;
     font-size: 15px;
     padding: 10px 0px 10px 2px;
     color: rgb(7, 55, 95);
 }
 td{
-   
+    padding: 2px;
+    text-align: left;
     color: rgb(243, 233, 233);
     font-size: 12px;
     font-weight: 100;
