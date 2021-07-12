@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { faEdit, faPlus, faTrashAlt} from '@fortawesome/free-solid-svg-icons'
+import { IconProp } from '@fortawesome/fontawesome-svg-core';
+import { faEdit, faPlus, faTrashAlt , faCheckCircle} from '@fortawesome/free-solid-svg-icons'
 import { TarefaService } from '../services/Tarefa.service';
 
 interface Alert {
   type: string;
   message: string;
-  id:number
+  id:number;
+  icon:IconProp;
 }
 
 @Component({
@@ -21,6 +23,7 @@ export class ListatarefaComponent implements OnInit {
   faEdit = faEdit
   faPlus = faPlus
   faTrashAlt=faTrashAlt
+  faCheckCircle=faCheckCircle
   p: number = 1;
  
   constructor(private tarefaService: TarefaService) {}
@@ -43,7 +46,8 @@ export class ListatarefaComponent implements OnInit {
     const ALERTS: Alert[] = [{
       type: 'warning',
       message: 'Deseja deleletar ' + nome,
-      id:id
+      id:id,
+      icon:this.faTrashAlt
     }];
 
     this.alerts = ALERTS
@@ -54,14 +58,17 @@ export class ListatarefaComponent implements OnInit {
     /* apagar o array alert*/
     this.alerts = [];
     /*chamar o metodo gettarefas()*/
-    this.ngOnInit()
+   
     /* chamar o metodo deletado com sucesso*/
     const ALERTS: Alert[] = [{
       type: 'primary',
       message: 'Tarefa deletada com sucesso',
-      id:id
+      id:id,
+      icon:this.faCheckCircle
     }];
     this.alerts = ALERTS;
+
+    this.ngOnInit()
     console.log(id)
   
   }

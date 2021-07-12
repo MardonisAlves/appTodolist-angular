@@ -32,7 +32,7 @@
                 (closed)="close(alert)">
                 {{ alert.message }} 
                 <a  (click)="deleteTarefa(alert.id)">
-                  <fa-icon [icon]="faTrashAlt"></fa-icon> 
+                  <fa-icon [icon]=alert.icon>{{alert.icon}}</fa-icon> 
                 </a>
               </ngb-alert>
               </p>
