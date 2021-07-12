@@ -25,7 +25,7 @@
           </nav>
           
           <div class="container-fluid">
-            <h1 class="mt-4">Simple Sidebar</h1>
+            <h1 class="mt-4">Lista de Tarefas</h1>
             <div class="tableLista">
                 <table>
                     <thead>
@@ -43,11 +43,11 @@
                             <td *ngIf="item.status == 0">Pendente</td>
                             <td *ngIf="item.status == 1">Pago</td>
                             <td>
-                                <a routerLink="/edit/{{item.id}}">
-                                    <fa-icon [icon]="faEdit"></fa-icon> edit
+                                <a routerLink="/edit/{{item.id}}" class="text-success">
+                                    <fa-icon [icon]="faEdit"></fa-icon> 
                                 </a>
-                                <a>
-                                    <fa-icon [icon]="faTrash"></fa-icon> delete
+                                <a class="text-danger">
+                                    <fa-icon [icon]="faTrashAlt"></fa-icon> 
                                 </a>
     
                             </td>

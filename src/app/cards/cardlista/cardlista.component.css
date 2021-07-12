@@ -1,7 +1,22 @@
 .card{
     max-width: 16em;
 }
-
+.card-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+ .card-header a{
+    font-size: 2em;
+    opacity: 0.5;
+}
+.card-header a:hover{
+    opacity: 0.9;
+   
+}
+.card-body{
+    opacity: 0.7;
+}
 @media (max-width: 575.98px) {
    .card{
         max-width: 20em;

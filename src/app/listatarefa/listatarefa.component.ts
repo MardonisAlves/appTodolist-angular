@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { faEdit, faPlus, faTrash } from '@fortawesome/free-solid-svg-icons'
-import { Tarefas } from '../models/Tarefas';
+import { faEdit, faPlus, faTrashAlt} from '@fortawesome/free-solid-svg-icons'
 import { TarefaService } from '../services/Tarefa.service';
 @Component({
   selector: 'app-listatarefa',
@@ -13,7 +12,7 @@ export class ListatarefaComponent implements OnInit {
   listaTarefas: any
   faEdit = faEdit
   faPlus = faPlus
-  faTrash = faTrash
+  faTrashAlt=faTrashAlt
   p: number = 1;
  
   constructor(private tarefaService: TarefaService) {}

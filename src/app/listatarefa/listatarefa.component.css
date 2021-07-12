@@ -4,6 +4,10 @@
     align-items: center;
     margin-top: 10px;
 }
+a{
+    margin: 5px;
+    font-size: 20px;
+}
 
 table{
     width: 100%;
