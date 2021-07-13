@@ -38,4 +38,20 @@ export class TarefaService {
    
   }
 
+  deleteTarefa(id:number): Observable<Tarefas>{
+    return this.http.delete<Tarefas>(`${baseURl}deltarefa/${id}`)
+  }
+
+  /*countTarefas*/
+  countTarefasPendentes(): Observable<Tarefas>{
+    return this.http.get<Tarefas>(`${baseURl}tarefasPendetes`)
+  }
+
+  countTotaltarefas(): Observable<Tarefas>{
+    return this.http.get<Tarefas>(`${baseURl}totalTarefas`)
+  }
+
+  tarefasConcluidas(): Observable<Tarefas>{
+    return this.http.get<Tarefas>(`${baseURl}concluidas`)
+  }
 }

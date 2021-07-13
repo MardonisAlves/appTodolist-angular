@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { faTasks } from '@fortawesome/free-solid-svg-icons';
+import { faTasks,faEye } from '@fortawesome/free-solid-svg-icons';
+import { TarefaService } from 'src/app/services/Tarefa.service';
 @Component({
   selector: 'app-cardpendente',
   templateUrl: './cardpendente.component.html',
@@ -7,9 +8,18 @@ import { faTasks } from '@fortawesome/free-solid-svg-icons';
 })
 export class CardpendenteComponent implements OnInit {
   faTasks=faTasks
-  constructor() { }
+  faEye=faEye
+  count:any = 0
+  constructor(private tarefaservice:TarefaService) { }
 
   ngOnInit(): void {
+    this.countTarefas()
+  }
+
+  countTarefas(){
+    this.tarefaservice.countTarefasPendentes()
+    .subscribe(count => this.count = count)
+     
   }
 
 }

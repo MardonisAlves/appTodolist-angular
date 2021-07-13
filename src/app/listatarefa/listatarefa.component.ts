@@ -1,14 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
 import { faEdit, faPlus, faTrashAlt , faCheckCircle} from '@fortawesome/free-solid-svg-icons'
+import { AlertService } from '../services/Alert.service';
 import { TarefaService } from '../services/Tarefa.service';
+import { AlertInterface } from '../models/AlertInterface';
 
-interface Alert {
-  type: string;
-  message: string;
-  id:number;
-  icon:IconProp;
-}
 
 @Component({
   selector: 'app-listatarefa',
@@ -17,7 +13,7 @@ interface Alert {
 })
 
 export class ListatarefaComponent implements OnInit {
-  alerts: Alert[]=[];
+  alerts: AlertInterface[] = []
   id: any
   listaTarefas: any
   faEdit = faEdit
@@ -26,53 +22,30 @@ export class ListatarefaComponent implements OnInit {
   faCheckCircle=faCheckCircle
   p: number = 1;
  
-  constructor(private tarefaService: TarefaService) {}
+  constructor(private tarefaService: TarefaService ,private alertService:AlertService) {}
   ngOnInit(): void {
     this.getTarefas();
-    console.log('ngOnit')
   }
+
+  /*Methods tarefas*/
   getTarefas() {
-   return  this.tarefaService.getTarefas().subscribe(listaTarefas => this.listaTarefas = (listaTarefas))
+   return  this.tarefaService.getTarefas()
+   .subscribe(listaTarefas => this.listaTarefas = (listaTarefas))
   }
-  
-
-
-  close(alert: Alert) {
-    this.alerts.splice(this.alerts.indexOf(alert), 1);
-  }
-
-  showAlert(nome:string,id:number){
-    console.log(nome);
-    const ALERTS: Alert[] = [{
-      type: 'warning',
-      message: 'Deseja deleletar ' + nome,
-      id:id,
-      icon:this.faTrashAlt
-    }];
-
-    this.alerts = ALERTS
-  }
-
   deleteTarefa(id:number):void{
-    /*Agora é so fazer o metodo deleteTarefa no tarefaService*/
-    /* apagar o array alert*/
+    this.tarefaService.deleteTarefa(id).subscribe()
     this.alerts = [];
-    /*chamar o metodo gettarefas()*/
-   
-    /* chamar o metodo deletado com sucesso*/
-    const ALERTS: Alert[] = [{
-      type: 'primary',
-      message: 'Tarefa deletada com sucesso',
-      id:id,
-      icon:this.faCheckCircle
-    }];
-    this.alerts = ALERTS;
-
-    this.ngOnInit()
-    console.log(id)
-  
+    this.alerts = this.alertService.alertsDeletado(id)
+    this.ngOnInit()    
   }
-
-
-
+  
+  /*Methods Alerts*/
+  close(alert: AlertInterface) {
+  this.alerts = this.alertService.closeAlert(alert)
+  }
+  showAlert(nome:string,id:number){
+    this.alerts =  this.alertService.showAlert(nome,id)
+  }
+  
+  
 }
