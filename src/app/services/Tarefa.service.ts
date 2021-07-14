@@ -54,4 +54,8 @@ export class TarefaService {
   tarefasConcluidas(): Observable<Tarefas>{
     return this.http.get<Tarefas>(`${baseURl}concluidas`)
   }
+
+  getValorTotal(): Observable<Tarefas>{
+    return this.http.get<Tarefas>(`${baseURl}valortotal`)
+  }
 }
