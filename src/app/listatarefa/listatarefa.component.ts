@@ -28,22 +28,22 @@ export class ListatarefaComponent implements OnInit {
   }
 
   /*Methods tarefas*/
-  getTarefas() {
-   return  this.tarefaService.getTarefas()
+  getTarefas():void{
+  this.tarefaService.getTarefas()
    .subscribe(listaTarefas => this.listaTarefas = (listaTarefas))
   }
   deleteTarefa(id:number):void{
-    this.tarefaService.deleteTarefa(id).subscribe()
+    this.tarefaService.deleteTarefa(id)
+    .subscribe( listaTarefas =>  this.listaTarefas = this.getTarefas())
     this.alerts = [];
     this.alerts = this.alertService.alertsDeletado(id)
-    this.ngOnInit()    
   }
   
   /*Methods Alerts*/
-  close(alert: AlertInterface) {
+  close(alert: AlertInterface):void{
   this.alerts = this.alertService.closeAlert(alert)
   }
-  showAlert(nome:string,id:number){
+  showAlert(nome:string,id:number):void{
     this.alerts =  this.alertService.showAlert(nome,id)
   }
   
