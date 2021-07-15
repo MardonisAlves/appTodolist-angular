@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthServiceService } from './auth-service.service';
+import { AuthServiceService } from './services/auth/auth-service.service';
 
 @Component({
   selector: 'app-root',

@@ -4,32 +4,31 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LoginComponent } from './login/login.component';
-import { HomeComponent } from './home/home.component';
+import { LoginComponent } from './template/login/login.component';
+import { HomeComponent } from './template/dashboard/home/home.component';
 import { AuthInterceptor } from './AuthInterceptor';
-import { NavbarComponent } from './navbar/navbar.component';
+import { NavbarComponent } from './template/navbar/navbar.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { CaduserComponent } from './caduser/caduser.component'
+import { CaduserComponent } from './template/caduser/caduser.component'
 import { Userservice } from './services/User.service';
-import { ListatarefaComponent } from './listatarefa/listatarefa.component';
-import { FooterComponent } from './footer/footer.component';
+import { ListatarefaComponent } from './template/dashboard/listatarefa/listatarefa.component';
+import { FooterComponent } from './template/footer/footer.component';
 import { FlexLayoutModule } from "@angular/flex-layout";
-import { CardsComponent } from './cards/cards.component';
+import { CardsComponent } from './template/dashboard/cards/cards.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {NgxPaginationModule} from 'ngx-pagination'; 
-import { AuthGuardService } from './guards/auth-guard.service';
-import { EditTarefaComponent } from './listatarefa/edit-tarefa/edit-tarefa.component';
-import { NewListComponent } from './listatarefa/new-list/new-list.component';
+import { AuthGuardService } from './services/guards/auth-guard.service';
+import { EditTarefaComponent } from './template/dashboard/listatarefa/edit-tarefa/edit-tarefa.component';
+import { NewListComponent } from './template/dashboard/listatarefa/new-list/new-list.component';
 import {SidebarDirective} from './sidebar.directive';
 import { SidebarComponent } from './template/sidebar/sidebar.component';
 import { NavbartoogleComponent } from './template/navbartoogle/navbartoogle.component';
 import { CollapseComponent } from './template/collapse/collapse.component';
-import { CardpendenteComponent } from './cards/cardpendente/cardpendente.component';
-import { CardlistaComponent } from './cards/cardlista/cardlista.component';
-import { CardvalortarefaComponent } from './cards/cardvalortarefa/cardvalortarefa.component';
-import { CardtarefaconcluidaComponent } from './cards/cardtarefaconcluida/cardtarefaconcluida.component';
-
-
+import { CardpendenteComponent } from './template/dashboard/cards/cardpendente/cardpendente.component';
+import { CardlistaComponent } from './template/dashboard/cards/cardlista/cardlista.component';
+import { CardvalortarefaComponent } from './template/dashboard/cards/cardvalortarefa/cardvalortarefa.component';
+import { CardtarefaconcluidaComponent } from './template/dashboard/cards/cardtarefaconcluida/cardtarefaconcluida.component';
+import { NgxEchartsModule } from 'ngx-echarts';
 
 
 
@@ -55,8 +54,6 @@ import { CardtarefaconcluidaComponent } from './cards/cardtarefaconcluida/cardta
     CardlistaComponent,
     CardvalortarefaComponent,
     CardtarefaconcluidaComponent
-  
-   
   ],
   imports: [
     BrowserModule,
@@ -66,7 +63,10 @@ import { CardtarefaconcluidaComponent } from './cards/cardtarefaconcluida/cardta
     FontAwesomeModule,
     FlexLayoutModule,
     NgbModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    NgxEchartsModule.forRoot({
+      echarts: () => import('echarts')
+    })
   ],
   providers: [
     AuthGuardService,

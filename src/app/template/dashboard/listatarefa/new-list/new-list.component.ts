@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { Tarefas } from '../../models/Tarefas';
+import { Tarefas } from '../../../../models/Tarefas';
 import { TarefaService } from 'src/app/services/Tarefa.service';
-import { AuthServiceService } from 'src/app/auth-service.service';
+import { AuthServiceService } from 'src/app/services/auth/auth-service.service';
 import { faCloudUploadAlt } from '@fortawesome/free-solid-svg-icons';
 @Component({
   selector: 'app-new-list',

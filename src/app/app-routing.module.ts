@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CaduserComponent } from './caduser/caduser.component';
-import { AuthGuardService } from './guards/auth-guard.service';
+import { CaduserComponent } from './template/caduser/caduser.component';
+import { AuthGuardService } from './services/guards/auth-guard.service';
 
-import { HomeComponent } from './home/home.component';
-import { EditTarefaComponent } from './listatarefa/edit-tarefa/edit-tarefa.component';
-import { ListatarefaComponent } from './listatarefa/listatarefa.component';
-import { NewListComponent } from './listatarefa/new-list/new-list.component';
-import { LoginComponent } from './login/login.component';
+import { HomeComponent } from './template/dashboard/home/home.component';
+import { EditTarefaComponent } from './template/dashboard/listatarefa/edit-tarefa/edit-tarefa.component';
+import { ListatarefaComponent } from './template/dashboard/listatarefa/listatarefa.component';
+import { NewListComponent } from './template/dashboard/listatarefa/new-list/new-list.component';
+import { LoginComponent } from './template/login/login.component';
 
 const routes: Routes = [
   

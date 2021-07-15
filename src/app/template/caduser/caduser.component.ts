@@ -3,11 +3,11 @@ import { StringMapWithRename } from '@angular/compiler/src/compiler_facade_inter
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { faUserLock, faKey, faUserCircle, faMinusSquare } from '@fortawesome/free-solid-svg-icons'
-import baseUrl from './../baseURl/baseUrl'
-import { User } from '../models/User';
+import baseUrl from '../../baseURl/baseUrl'
+import { User } from '../../models/User';
 
 
-import { Userservice } from '../services/User.service';
+import { Userservice } from '../../services/User.service';
 import { error } from '@angular/compiler/src/util';
 
 @Component({

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { faTimesCircle ,faSignOutAlt} from '@fortawesome/free-solid-svg-icons'
-import { AuthServiceService } from 'src/app/auth-service.service';
+import { AuthServiceService } from 'src/app/services/auth/auth-service.service';
 @Component({
   selector: 'app-collapse',
   templateUrl: './collapse.component.html',

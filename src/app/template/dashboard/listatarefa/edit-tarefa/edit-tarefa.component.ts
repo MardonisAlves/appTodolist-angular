@@ -4,7 +4,7 @@ import {faUndoAlt , faSync} from '@fortawesome/free-solid-svg-icons'
 import { TarefaService } from 'src/app/services/Tarefa.service';
 import { ActivatedRoute } from '@angular/router';
 import { Tarefas } from 'src/app/models/Tarefas';
-import { AuthServiceService } from 'src/app/auth-service.service';
+import { AuthServiceService } from 'src/app/services/auth/auth-service.service';
 
 @Component({
   selector: 'app-edit-tarefa',

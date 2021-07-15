@@ -3,12 +3,13 @@ import { HttpClient } from '@angular/common/http';
 import { Tarefas } from '../models/Tarefas';
 import { Observable } from 'rxjs';
 import baseURl from '../baseURl/baseUrl';
+import { tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TarefaService {
-
+  lista:any = ''
   constructor (private http: HttpClient) { }
 
 
@@ -40,6 +41,19 @@ export class TarefaService {
 
   deleteTarefa(id:number): Observable<Tarefas>{
     return this.http.delete<Tarefas>(`${baseURl}deltarefa/${id}`)
+  }
+
+  /*searchTarefas*/
+  searchTarefas(term:string): Observable<Tarefas[]>{
+    if(!term.trim()){
+      return this.lista
+    }
+    return this.http.get<Tarefas[]>(`${baseURl}search/${term}`)
+    .pipe(
+      tap(tarefa => tarefa.length ?
+        console.log(`found heroes matching "${term}"`) :
+        console.log(`no heroes matching "${term}"`))
+    )
   }
 
   /*countTarefas*/

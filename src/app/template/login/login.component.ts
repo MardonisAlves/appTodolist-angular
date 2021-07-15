@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthServiceService } from '../auth-service.service';
+import { AuthServiceService } from '../../services/auth/auth-service.service';
 import { faUserLock , faKey ,faUserPlus } from '@fortawesome/free-solid-svg-icons'
 @Component({
   selector: 'app-login',

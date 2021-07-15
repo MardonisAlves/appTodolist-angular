@@ -3,7 +3,7 @@ import { HttpClient } from "@angular/common/http";
 import * as moment from 'moment'
 import 'rxjs/add/operator/do';
 import { shareReplay } from 'rxjs/operators';
-import  baseUrl from './baseURl/baseUrl'
+import  baseUrl from '../../baseURl/baseUrl'
 import { Router } from '@angular/router';
 import { Location } from '@angular/common';
 

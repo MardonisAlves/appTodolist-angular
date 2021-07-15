@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
 import { faEdit, faPlus, faTrashAlt , faCheckCircle} from '@fortawesome/free-solid-svg-icons'
-import { AlertService } from '../services/Alert.service';
-import { TarefaService } from '../services/Tarefa.service';
-import { AlertInterface } from '../models/AlertInterface';
+import { AlertService } from '../../../services/Alert.service';
+import { TarefaService } from '../../../services/Tarefa.service';
+import { AlertInterface } from '../../../models/AlertInterface';
 
 
 @Component({
@@ -37,6 +37,13 @@ export class ListatarefaComponent implements OnInit {
     .subscribe( listaTarefas =>  this.listaTarefas = this.getTarefas())
     this.alerts = [];
     this.alerts = this.alertService.alertsDeletado(id)
+  }
+
+  /*search tarefas*/
+  searchTarefas(term:string):void {
+    
+    this.tarefaService.searchTarefas(term)
+    .subscribe(listaTarefas => this.listaTarefas = listaTarefas)
   }
   
   /*Methods Alerts*/
