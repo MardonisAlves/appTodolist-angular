@@ -11,6 +11,7 @@ import { faCloudUploadAlt } from '@fortawesome/free-solid-svg-icons';
 })
 export class NewListComponent implements OnInit {
   faCloudUploadAlt=faCloudUploadAlt
+ 
   constructor(
     private tarefaService: TarefaService,
     private authservice:AuthServiceService) { }
@@ -21,15 +22,18 @@ export class NewListComponent implements OnInit {
 
   //novaTarefa
   novaTarefa(f: NgForm) {
+    
     const id = 0
     const userid = JSON.parse(localStorage.getItem("id") || "")
-    const nome = f.value.nome
+    const nome  = f.value.nome
+    
     const local = f.value.local
     const situacao = f.value.situacao
     const valor = f.value.valor
     const data = f.value.data
 
-    let tarefas = new Tarefas(id, local, nome, situacao, userid, valor, data)
+
+    let tarefas = new Tarefas(id, local, nome , situacao, userid, valor, data)
     return this.tarefaService.newTarefa(tarefas)
       .subscribe(res => {
         this.goBack();

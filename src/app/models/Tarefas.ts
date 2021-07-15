@@ -17,8 +17,8 @@ export class Tarefas {
          data: Date) 
     {
         this.id=id
-        this.local = local
-        this.nome = nome
+        this.local = local.toLowerCase()
+        this.nome = nome.toLowerCase()
         this.status = status
         this.userid = userid
         this.valor = valor

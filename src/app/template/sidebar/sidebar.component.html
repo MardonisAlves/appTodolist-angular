@@ -1,8 +1,16 @@
 <div class="bg-dark border-right" id="sidebar-wrapper">
-    <div class="sidebar-heading  text-light">Therichpost </div>
+    <div class="sidebar-heading  text-light">
+      <a>
+        <fa-icon [icon]="faUserCircle" class="iconUser"></fa-icon>
+      </a>
+      <a>Bem vindo {{nome}}</a>
+    </div>
     <div class="list-group list-group-flush">
-      <a routerLink="/home" class="list-group-item list-group-item-action bg-dark">Dashboard</a>
-      <a routerLink="/listatarefa" class="list-group-item list-group-item-action bg-dark">Tarefas</a>
-      <a routerLink="/new" class="list-group-item list-group-item-action bg-dark">Nova Tarefa</a>
+      <a routerLink="/home" class="list-group-item list-group-item-action bg-dark">
+        <fa-icon [icon]= "faTachometerAlt" class="icon"></fa-icon>Dashboard</a>
+      <a routerLink="/listatarefa" class="list-group-item list-group-item-action bg-dark">
+        <fa-icon [icon]="faTable" class="icon"></fa-icon>Tarefas</a>
+      <a routerLink="/new" class="list-group-item list-group-item-action bg-dark">
+        <fa-icon [icon]="faAd" class="icon"></fa-icon>Nova Tarefa</a>
     </div>
   </div>

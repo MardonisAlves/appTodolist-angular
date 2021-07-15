@@ -1,9 +1,26 @@
-ul li a{
-    color: rgb(39, 37, 37);
-}
+
 a{
-    color: #fff;;
+    color: #fff;
+    
 }
 a:hover{
     color: #fff;
+}
+.icon{
+    margin-right: 5px;
+    font-size:25px;
+    color:  rgb(214, 196, 33);
+    
+}
+
+.iconUser{
+    margin-right: 5px;
+    font-size:55px;
+    color:  rgb(214, 196, 33);
+}
+.sidebar-heading {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }

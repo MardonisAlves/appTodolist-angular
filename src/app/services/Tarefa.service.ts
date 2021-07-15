@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Tarefas } from '../models/Tarefas';
 import { Observable } from 'rxjs';
 import baseURl from '../baseURl/baseUrl';
-import { tap } from 'rxjs/operators';
+import { catchError, tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -51,8 +51,8 @@ export class TarefaService {
     return this.http.get<Tarefas[]>(`${baseURl}search/${term}`)
     .pipe(
       tap(tarefa => tarefa.length ?
-        console.log(`found heroes matching "${term}"`) :
-        console.log(`no heroes matching "${term}"`))
+        console.log(`found tarefas matching "${term}"`) :
+        console.log(`no tarefas matching "${term}"`))
     )
   }
 
@@ -72,4 +72,6 @@ export class TarefaService {
   getValorTotal(): Observable<Tarefas>{
     return this.http.get<Tarefas>(`${baseURl}valortotal`)
   }
+
+  
 }

@@ -41,9 +41,15 @@ export class ListatarefaComponent implements OnInit {
 
   /*search tarefas*/
   searchTarefas(term:string):void {
-    
-    this.tarefaService.searchTarefas(term)
-    .subscribe(listaTarefas => this.listaTarefas = listaTarefas)
+    if(term === ''){
+     this.getTarefas()
+    }else{
+      this.tarefaService.searchTarefas(term)
+      .subscribe(listaTarefas => this.listaTarefas = listaTarefas,
+        error => {
+          console.log(error)
+        })
+    }
   }
   
   /*Methods Alerts*/
@@ -53,6 +59,5 @@ export class ListatarefaComponent implements OnInit {
   showAlert(nome:string,id:number):void{
     this.alerts =  this.alertService.showAlert(nome,id)
   }
-  
-  
+
 }
