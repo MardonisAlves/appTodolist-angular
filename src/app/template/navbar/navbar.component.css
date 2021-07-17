@@ -1,4 +1,7 @@
-  nav a{
+a:hover{
+    text-decoration: none;
+}
+nav a{
     margin: 10px;
     color: #fff;
 }

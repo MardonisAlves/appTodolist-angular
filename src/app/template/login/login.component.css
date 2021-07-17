@@ -1,27 +1,29 @@
-
-
 a {
-    color: #fff;
+    color: rgb(243, 237, 237);
     margin: 2px;
    
 }
-
-button a:houver{
-   text-decoration: nome;
+a:hover{
+   text-decoration: none;
 }
 
 button {
     color: #fff;
-    font-size: 12px;
+    font-size: 16px;
     border: none;
     margin: 5px;
 }
+input{
+   margin-top: 30px;
+}
 
+.button {
+    margin-top: 30px;
+}
 .login h3 {
     text-align: center;
     margin: 20px 0px 30px 0px;
 }
-
 
 .login{
     display: flex;
@@ -34,22 +36,9 @@ button {
     font-size: 12px;
 
 }
-.login p {
-    text-align: center;
-    margin-bottom: 20px;
-    font-size: 12px;
-    color: rgb(216, 89, 89);
-}
 
-.form-group input{
-    border: 1px solid rgb(228, 221, 221);
-    color:  rgb(228, 221, 221);
-    margin: 10px 0px 10px 0px;
-    border-radius: 5px;
-    padding: 10px;
-    
-   
-}
+
+
 
 
 
