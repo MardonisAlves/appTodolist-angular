@@ -3,20 +3,24 @@ import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthServiceService } from '../../services/auth/auth-service.service';
 import { faUserLock , faKey ,faUserPlus } from '@fortawesome/free-solid-svg-icons'
+import { AlertService } from 'src/app/services/Alert.service';
+import { AlertInterface } from 'src/app/models/AlertInterface';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  error:string
+  alert: AlertInterface[] = []
   faUserLock = faUserLock
   faKey = faKey
   faUserPlus=faUserPlus
   localstorage = window.localStorage
-  constructor(private authService: AuthServiceService ,
+  constructor(
+    private authService: AuthServiceService,
+     private alertService:AlertService,
               private router: Router) 
-              { this.error = ''}
+              {}
 
 
   ngOnInit(): void {
@@ -33,15 +37,22 @@ export class LoginComponent implements OnInit {
                  this.router.navigateByUrl('home');
               },
               (error) => {
-                /* pegar o error dinamico senha e email*/
-                if(error.status == 401){
-                  const error = this.error= "E-mail ou senha invalida"
-                   console.log(error)
-                   }
+                if(error.error.email){
+                  this.alert = this.alertService.alertLogin(error.error.email)
+                  console.log(this.alert)
+                }else{
+                  this.alert = []
+                  this.alert = this.alertService.alertLogin(error.error.password)
+                  console.log(this.alert)
+                }
               }
           );
   }
 
+  }
+
+  close(alert:AlertInterface){
+   this.alert = this.alertService.closeAlert(alert)
   }
 
 }

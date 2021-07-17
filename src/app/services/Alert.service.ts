@@ -21,6 +21,16 @@ export class AlertService {
 
     return ALERTS
   }
+  alertLogin(message:string){
+    const ALERTS: AlertInterface[] = [{
+      type: 'danger',
+      message: message,
+      id: 0,
+      icon: this.faTrashAlt
+    }];
+    return ALERTS
+  }
+
   closeAlert(alert: AlertInterface) {
     return this.alerts.splice(this.alerts.indexOf(alert), 1);
   }

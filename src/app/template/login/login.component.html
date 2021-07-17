@@ -3,13 +3,12 @@
 
 <div class="login">
 <div class="card text-center">
-  <div class="card-header  bg-light">
-    <h6>Admin</h6>
-  </div>
   <div class="card-body">
     <form  #f="ngForm" (ngSubmit)="login(f)">
-      <div *ngIf="error">
-        <p><strong>{{error}}</strong></p>
+      <div *ngIf="alert">
+        <p *ngFor="let item of alert">
+          <ngb-alert [type]="item.type"  (closed)="close(item)">{{ item.message}}</ngb-alert>
+        </p>
       </div>
       <div class="form-group">
         <input type="email" class="form-control" aria-describedby="emailHelp" placeholder="Enter email"  name="email" ngModel>

@@ -1,14 +1,10 @@
 import { HttpClient } from '@angular/common/http';
-import { StringMapWithRename } from '@angular/compiler/src/compiler_facade_interface';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { faUserLock, faKey, faUserCircle, faMinusSquare } from '@fortawesome/free-solid-svg-icons'
 import baseUrl from '../../baseURl/baseUrl'
 import { User } from '../../models/User';
-
-
 import { Userservice } from '../../services/User.service';
-import { error } from '@angular/compiler/src/util';
 
 @Component({
   selector: 'app-caduser',
@@ -20,15 +16,15 @@ export class CaduserComponent implements OnInit {
   faKey = faKey
   faUserCircle = faUserCircle
   faMinusSquare = faMinusSquare
- error: any
+  error: any
   camposvazio: string
   userService: Userservice
   
 
-  Object = Object
+  
   constructor(private http: HttpClient, userService: Userservice) {
     this.userService = userService
-    this.error = {}
+    this.error = []
     this.camposvazio = ''
 
   }
@@ -37,8 +33,6 @@ export class CaduserComponent implements OnInit {
   }
 
   OnSubmit(f: NgForm) {
-
-
     const nome = f.value.nome
     const sobrenome = f.value.sobrenome
     const email = f.value.email

@@ -59,5 +59,6 @@ export class ListatarefaComponent implements OnInit {
   showAlert(nome:string,id:number):void{
     this.alerts =  this.alertService.showAlert(nome,id)
   }
+  
 
 }
