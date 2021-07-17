@@ -30,12 +30,12 @@
                     <div class="form-row">
                         <div class="form-group col-md-6">
                           <label for="inputEmail4">Nome</label>
-                          <input type="text" class="form-control"  placeholder={{item.nome}} [(ngModel)]="item.nome" name="nome">
+                          <input type="text" class="form-control"  placeholder={{item.nome}} [(ngModel)]="item.nome" name="nome" autocomplete="off">
                         </div>
               
                         <div class="form-group col-md-6">
                           <label for="inputPassword4">local</label>
-                          <input type="text" class="form-control"  placeholder={{item.local}} [(ngModel)]="item.local" name="local">
+                          <input type="text" class="form-control"  placeholder={{item.local}} [(ngModel)]="item.local" name="local" autocomplete="off">
                         </div>
                       </div>
               
@@ -43,7 +43,7 @@
                       <div class="form-row">
                         <div class="form-group col-md-6">
                           <label for="inputCity">Valor</label>
-                          <input type="text" class="form-control" placeholder={{item.valor}} [(ngModel)]="item.valor" name="valor">
+                          <input type="text" class="form-control" placeholder={{item.valor}} [(ngModel)]="item.valor" name="valor" autocomplete="off">
                         </div>
                         <div class="form-group col-md-4">
                           <label for="inputState">Situação</label>
@@ -55,7 +55,7 @@
                         </div>
                         <div class="form-group col-md-2">
                           <label for="inputZip">Data</label>
-                          <input type="date" class="form-control" placeholder={{item.data}} [(ngModel)]="item.data" name="data">
+                          <input type="date" class="form-control" placeholder={{item.data}} [(ngModel)]="item.data" name="data" autocomplete="off">
                         </div>
                       </div>
                       <a class="btn btn-secondary" (click)="goBack()">

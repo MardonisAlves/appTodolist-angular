@@ -34,7 +34,7 @@
           </div>
 
           <label for="search-box">Search Tarefas</label>
-          <input #searchBox id="search-box" (input)="searchTarefas(searchBox.value)" />
+          <input #searchBox id="search-box" (input)="searchTarefas(searchBox.value)" autocomplete="off"/>
 
             <p *ngFor="let alert of alerts">
                 <ngb-alert [type]="alert.type" 
