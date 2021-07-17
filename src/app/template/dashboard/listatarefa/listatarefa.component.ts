@@ -41,10 +41,11 @@ export class ListatarefaComponent implements OnInit {
 
   /*search tarefas*/
   searchTarefas(term:string):void {
-    if(term === ''){
+  const search =   term.toLocaleLowerCase()
+;    if(search === ''){
      this.getTarefas()
     }else{
-      this.tarefaService.searchTarefas(term)
+      this.tarefaService.searchTarefas(search)
       .subscribe(listaTarefas => this.listaTarefas = listaTarefas,
         error => {
           console.log(error)
