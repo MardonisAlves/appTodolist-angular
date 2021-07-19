@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { User } from '../models/User';
 import baseUrl from './../baseURl/baseUrl'
 
@@ -11,15 +12,7 @@ export class Userservice {
         
     }
     /*novo user*/
-    Caduser(user:any){
-
-        return this.http.post<User>(`${baseUrl}new`, user)
-        .forEach((res) => {
-            console.log(res) 
-           
-        }).catch(err => {
-            console.log(err.error.list)
-        })
-        
+    Caduser(user:any): Observable<User>{
+      return  this.http.post<User>(`${baseUrl}new`, user)
     }
 }

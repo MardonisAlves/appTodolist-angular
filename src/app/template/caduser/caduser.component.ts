@@ -2,7 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { faUserLock, faKey, faUserCircle, faMinusSquare } from '@fortawesome/free-solid-svg-icons'
-import baseUrl from '../../baseURl/baseUrl'
+import { AlertInterface } from 'src/app/models/AlertInterface';
+import { AlertService } from 'src/app/services/Alert.service';
 import { User } from '../../models/User';
 import { Userservice } from '../../services/User.service';
 
@@ -16,18 +17,15 @@ export class CaduserComponent implements OnInit {
   faKey = faKey
   faUserCircle = faUserCircle
   faMinusSquare = faMinusSquare
-  error: any
-  camposvazio: string
-  userService: Userservice
-  
+  alerts: AlertInterface[] = []
 
-  
-  constructor(private http: HttpClient, userService: Userservice) {
-    this.userService = userService
-    this.error = []
-    this.camposvazio = ''
+   nome:string = 'Mardonis'
+   sobrenome:string = '' 
+   email:string = '' 
+   password:string = '' 
+   reset:string = '' 
 
-  }
+  constructor( private userService: Userservice ,private alertService:AlertService) {}
 
   ngOnInit(): void {
   }
@@ -40,22 +38,34 @@ export class CaduserComponent implements OnInit {
     const reset = f.value.reset
 
     let user = new User(nome, sobrenome, email, password);
-    this.Caduser(user)
+    if(reset != password){
+      this.alerts = this.alertService.alertCardUser('A senha deve ser igual')
+    }else{
+      this.userService.Caduser(user)
+      .subscribe(
+        res => {
+          this.alerts = this.alertService.alertcardUserSucesso()
+        },
+        err => {
+          // console.log(err.error.list)
+          for (let index = 0; index < err.error.list.length; index++) {
+            const element = err.error.list[index];
+            console.log(element.msg)
+           this.alerts = this.alertService.alertCardUser(element.msg)
+          }
+          
+        }
+      )
+    }
+    
   
   }
 
-  Caduser(user:any){
+  close(alert:AlertInterface){
+    this.alerts = []
+    this.alertService.closeAlert(alert)
+  }
 
-    return this.http.post<User>(`${baseUrl}new`, user)
-    .forEach((res) => {
-        console.log(res) 
-       
-    }).catch(err => {
-       this.error = err.error.list
-       console.log(this.error)
-    })
-    
-}
 }
 
 

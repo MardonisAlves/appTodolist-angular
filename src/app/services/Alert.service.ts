@@ -31,6 +31,25 @@ export class AlertService {
     return ALERTS
   }
 
+  alertCardUser(message:string){
+    const ALERTS: AlertInterface[] = [{
+      type: 'danger',
+      message: message,
+      id: 0,
+      icon: this.faTrashAlt
+    }];
+    return ALERTS
+  }
+  
+alertcardUserSucesso(){
+  const ALERTS: AlertInterface[] = [{
+    type: 'success',
+    message: 'Usuário cadastrado com sucesso',
+    id: 0,
+    icon: this.faTrashAlt
+  }];
+  return ALERTS
+}
   closeAlert(alert: AlertInterface) {
     return this.alerts.splice(this.alerts.indexOf(alert), 1);
   }
