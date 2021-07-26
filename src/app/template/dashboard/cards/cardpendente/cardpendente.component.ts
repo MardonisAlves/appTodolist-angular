@@ -17,7 +17,8 @@ export class CardpendenteComponent implements OnInit {
   }
 
   countTarefas(){
-    this.tarefaservice.countTarefasPendentes()
+    const id  = Number(localStorage.getItem('id'))
+    this.tarefaservice.countTarefasPendentes(id)
     .subscribe(count => this.count = count)
      
   }

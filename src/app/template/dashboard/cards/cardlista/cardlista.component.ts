@@ -17,7 +17,8 @@ export class CardlistaComponent implements OnInit {
   }
 
   countTarefas(){
-    this.tarefaservice.countTotaltarefas()
+    const id = Number(localStorage.getItem('id'))
+    this.tarefaservice.countTotaltarefas(id)
     .subscribe(count => this.count = count)
      
   }

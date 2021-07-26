@@ -57,16 +57,16 @@ export class TarefaService {
   }
 
   /*countTarefas*/
-  countTarefasPendentes(): Observable<Tarefas>{
-    return this.http.get<Tarefas>(`${baseURl}tarefasPendetes`)
+  countTarefasPendentes(id:number): Observable<Tarefas>{
+    return this.http.get<Tarefas>(`${baseURl}tarefasPendetes/${id}`)
   }
 
-  countTotaltarefas(): Observable<Tarefas>{
-    return this.http.get<Tarefas>(`${baseURl}totalTarefas`)
+  countTotaltarefas(id:number): Observable<Tarefas>{
+    return this.http.get<Tarefas>(`${baseURl}totalTarefas/${id}`)
   }
 
-  tarefasConcluidas(): Observable<Tarefas>{
-    return this.http.get<Tarefas>(`${baseURl}concluidas`)
+  tarefasConcluidas(id:number): Observable<Tarefas>{
+    return this.http.get<Tarefas>(`${baseURl}concluidas/${id}`)
   }
 
   getValorTotal(): Observable<Tarefas>{

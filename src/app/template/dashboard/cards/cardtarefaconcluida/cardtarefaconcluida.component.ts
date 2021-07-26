@@ -17,7 +17,8 @@ export class CardtarefaconcluidaComponent implements OnInit {
   }
 
   tarefasConcluidas(){
-    this.tarefaService.tarefasConcluidas()
+    const id = Number(localStorage.getItem('id'))
+    this.tarefaService.tarefasConcluidas(id)
     .subscribe(count => this.count = count)
   }
 }
