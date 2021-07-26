@@ -31,7 +31,7 @@ export class AlertService {
     return ALERTS
   }
 
-  alertCardUser(message:string){
+  alertCardUser(message:any){
     const ALERTS: AlertInterface[] = [{
       type: 'danger',
       message: message,
@@ -41,10 +41,10 @@ export class AlertService {
     return ALERTS
   }
   
-alertcardUserSucesso(){
+alertcardUserSucesso(message:any){
   const ALERTS: AlertInterface[] = [{
     type: 'success',
-    message: 'Usuário cadastrado com sucesso',
+    message: message,
     id: 0,
     icon: this.faTrashAlt
   }];

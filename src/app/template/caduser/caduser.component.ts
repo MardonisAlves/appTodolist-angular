@@ -36,25 +36,37 @@ export class CaduserComponent implements OnInit {
     const email = f.value.email
     const password = f.value.password
     const reset = f.value.reset
+    const typeuser = 'user'
 
-    let user = new User(nome, sobrenome, email, password);
+    let user = new User(nome, sobrenome, email, password,typeuser);
     if(reset != password){
       this.alerts = this.alertService.alertCardUser('A senha deve ser igual')
     }else{
       this.userService.Caduser(user)
       .subscribe(
-        res => {
-          this.alerts = this.alertService.alertcardUserSucesso()
+        (res:any) => {
+          if(res.sms.errors){
+            console.log(res.sms.errors)
+            for (let index = 0; index < res.sms.errors.length; index++) {
+              const element = res.sms.errors[index];
+              this.alerts = this.alertService.alertCardUser(element.message)
+            }
+          }else{
+            //limpar o formulário aqui
+            console.log(res.sms)
+            this.alerts = this.alertService.alertcardUserSucesso(res.sms)
+          }
         },
         err => {
-          // console.log(err.error.list)
+           console.log(err.error.list)
           for (let index = 0; index < err.error.list.length; index++) {
             const element = err.error.list[index];
-            console.log(element.msg)
+            console.log(element)
            this.alerts = this.alertService.alertCardUser(element.msg)
           }
           
         }
+
       )
     }
     
