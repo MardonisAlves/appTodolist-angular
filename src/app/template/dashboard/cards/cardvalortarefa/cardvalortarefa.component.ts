@@ -16,7 +16,8 @@ export class CardvalortarefaComponent implements OnInit {
   }
 
   getValorTotal():void{
-    this.tarefaService.getValorTotal()
+    const id = Number(localStorage.getItem('id'))
+    this.tarefaService.getValorTotal(id)
     .subscribe(count => this.count = count)
   }
 

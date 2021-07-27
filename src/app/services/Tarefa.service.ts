@@ -69,8 +69,8 @@ export class TarefaService {
     return this.http.get<Tarefas>(`${baseURl}concluidas/${id}`)
   }
 
-  getValorTotal(): Observable<Tarefas>{
-    return this.http.get<Tarefas>(`${baseURl}valortotal`)
+  getValorTotal(id:number): Observable<Tarefas>{
+    return this.http.get<Tarefas>(`${baseURl}valortotal/${id}`)
   }
 
   
