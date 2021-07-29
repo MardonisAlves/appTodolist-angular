@@ -24,7 +24,7 @@ export class NewListComponent implements OnInit {
   novaTarefa(f: NgForm) {
     
     const id = 0
-    const userid = JSON.parse(localStorage.getItem("id") || "")
+    const UserId = JSON.parse(localStorage.getItem("id") || "")
     const nome  = f.value.nome
     
     const local = f.value.local
@@ -33,7 +33,7 @@ export class NewListComponent implements OnInit {
     const data = f.value.data
 
 
-    let tarefas = new Tarefas(id, local, nome , situacao, userid, valor, data)
+    let tarefas = new Tarefas(id, local, nome , situacao, UserId, valor, data)
     return this.tarefaService.newTarefa(tarefas)
       .subscribe(res => {
         this.goBack();

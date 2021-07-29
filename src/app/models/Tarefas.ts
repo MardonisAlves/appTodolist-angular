@@ -3,7 +3,7 @@ export class Tarefas {
     local: string
     nome: string
     status: boolean
-    userid: number
+    UserId: number
     valor: number
     data: Date
 
@@ -12,7 +12,7 @@ export class Tarefas {
         local: string, 
         nome: string, 
         status: boolean, 
-        userid: number,
+        UserId: number,
          valor: number,
          data: Date) 
     {
@@ -20,7 +20,7 @@ export class Tarefas {
         this.local = local.toLowerCase()
         this.nome = nome.toLowerCase()
         this.status = status
-        this.userid = userid
+        this.UserId = UserId
         this.valor = valor
         this.data = data
     }
