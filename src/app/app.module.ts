@@ -13,7 +13,6 @@ import { CaduserComponent } from './template/caduser/caduser.component'
 import { Userservice } from './services/User.service';
 import { ListatarefaComponent } from './template/dashboard/listatarefa/listatarefa.component';
 import { FooterComponent } from './template/footer/footer.component';
-import { FlexLayoutModule } from "@angular/flex-layout";
 import { CardsComponent } from './template/dashboard/cards/cards.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {NgxPaginationModule} from 'ngx-pagination'; 
@@ -56,12 +55,11 @@ import { NgxEchartsModule } from 'ngx-echarts';
     CardtarefaconcluidaComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
     FontAwesomeModule,
-    FlexLayoutModule,
     NgbModule,
     NgxPaginationModule,
     NgxEchartsModule.forRoot({

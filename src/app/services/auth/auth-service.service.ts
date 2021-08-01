@@ -20,9 +20,8 @@ export class AuthServiceService {
     private http: HttpClient ,
     private router:Router,
     private location:Location) {
-    this.storage = window.localStorage
-    
-    
+     this.storage = localStorage
+  
   }
 
   login(email: string, password: string) {
@@ -47,9 +46,14 @@ export class AuthServiceService {
 
 
     const id =  this.storage.setItem('id' , authResult.id);
+    const getid = this.storage.getItem('id');
+    console.log(getid)
     const nome = this.storage.setItem('nome',authResult.nome);
     const sobrenome = this.storage.setItem('sobrenome',authResult.sobrenome)
-    
+    const typeuser  = this.storage.setItem('typeuser' , authResult.typeuser )
+
+    const getTypeuser = this.storage.getItem('typeuser')
+    console.log(getTypeuser)
   }
 
   logout() {

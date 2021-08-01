@@ -6,6 +6,7 @@
   <div class="card-body">
     <form  #f="ngForm" (ngSubmit)="login(f)">
       <h3>Admin</h3>
+     
       <div *ngIf="alert">
         <p *ngFor="let item of alert">
           <ngb-alert [type]="item.type"  (closed)="close(item)">{{ item.message}}</ngb-alert>

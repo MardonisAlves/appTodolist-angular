@@ -11,6 +11,7 @@ import { AlertInterface } from 'src/app/models/AlertInterface';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  
   alert: AlertInterface[] = []
   faUserLock = faUserLock
   faKey = faKey
@@ -34,7 +35,12 @@ export class LoginComponent implements OnInit {
       this.authService.login(f.value.email, f.value.password)
           .subscribe(
               (res) => {
-                 this.router.navigateByUrl('home');
+                if(localStorage.getItem('typeuser') === 'admin'){
+                  
+                }else{
+                  this.router.navigateByUrl('home');
+                }
+                 
               },
               (error) => {
                 if(error.error.email){

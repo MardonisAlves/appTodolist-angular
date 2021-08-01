@@ -20,7 +20,7 @@
             "allowedCommonJsDependencies": [
               "rxjs/add/operator/do"
            ],
-            "outputPath": "dist/front-endtodolist",
+            "outputPath": "dist/front-endtodolist/browser",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -57,8 +57,8 @@
               "buildOptimizer": true,
               "budgets": [
                 {
-                  "type": "initial",
-                  "maximumWarning": "500kb",
+                  "type": "any",
+                  "maximumWarning": "2mb",
                   "maximumError": "1mb"
                 },
                 {
@@ -110,7 +110,8 @@
             "tsConfig": [
               "tsconfig.app.json",
               "tsconfig.spec.json",
-              "e2e/tsconfig.json"
+              "e2e/tsconfig.json",
+              "tsconfig.server.json"
             ],
             "exclude": [
               "**/node_modules/**"
@@ -127,6 +128,53 @@
             "production": {
               "devServerTarget": "front-endtodolist:serve:production"
             }
+          }
+        },
+        "server": {
+          "builder": "@angular-devkit/build-angular:server",
+          "options": {
+            "outputPath": "dist/front-endtodolist/server",
+            "main": "server.ts",
+            "tsConfig": "tsconfig.server.json"
+          },
+          "configurations": {
+            "production": {
+              "outputHashing": "media",
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ],
+              "sourceMap": false,
+              "optimization": true
+            }
+          }
+        },
+        "serve-ssr": {
+          "builder": "@nguniversal/builders:ssr-dev-server",
+          "options": {
+            "browserTarget": "front-endtodolist:build",
+            "serverTarget": "front-endtodolist:server"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "front-endtodolist:build:production",
+              "serverTarget": "front-endtodolist:server:production"
+            }
+          }
+        },
+        "prerender": {
+          "builder": "@nguniversal/builders:prerender",
+          "options": {
+            "browserTarget": "front-endtodolist:build:production",
+            "serverTarget": "front-endtodolist:server:production",
+            "routes": [
+              "/"
+            ]
+          },
+          "configurations": {
+            "production": {}
           }
         }
       }
