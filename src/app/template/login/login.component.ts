@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit {
           .subscribe(
               (res) => {
                 if(localStorage.getItem('typeuser') === 'admin'){
-                  
+                  this.router.navigateByUrl("admin")
                 }else{
                   this.router.navigateByUrl('home');
                 }

@@ -8,7 +8,7 @@ import { EditTarefaComponent } from './template/dashboard/listatarefa/edit-taref
 import { ListatarefaComponent } from './template/dashboard/listatarefa/listatarefa.component';
 import { NewListComponent } from './template/dashboard/listatarefa/new-list/new-list.component';
 import { LoginComponent } from './template/login/login.component';
-
+import { AdminComponent } from './template/admin/admin.component';
 const routes: Routes = [
   
   { path: '' , component: LoginComponent },
@@ -16,7 +16,9 @@ const routes: Routes = [
   {path: 'caduser' , component: CaduserComponent},
   {path: 'new' , component: NewListComponent ,canActivate:[AuthGuardService]},
   {path: 'edit/:id' , component: EditTarefaComponent ,canActivate:[AuthGuardService]},
-  {path: 'listatarefa' , component:ListatarefaComponent , canActivate:[AuthGuardService]}
+  {path: 'listatarefa' , component:ListatarefaComponent , canActivate:[AuthGuardService]},
+
+  {path: 'admin' , component:AdminComponent ,canActivate:[AuthGuardService]}
 ];
 
 @NgModule({
